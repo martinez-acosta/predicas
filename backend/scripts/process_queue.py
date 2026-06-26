@@ -44,12 +44,15 @@ def main() -> None:
     parser.add_argument("--sleep", type=float, default=0.0, help="Segundos de pausa entre ciclos.")
     parser.add_argument("--no-export-each", action="store_true", help="Exporta solo al final.")
     parser.add_argument("--transcribe-first", action="store_true", help="Transcribe todos los pendientes antes de resumir.")
+    parser.add_argument("--transcribe-only", action="store_true", help="Solo transcribe; no ejecuta resumenes.")
     args = parser.parse_args()
 
     cycle = 0
     while True:
         to_transcribe, to_summarize = pending_counts()
         print(f"Pendientes: transcribir={to_transcribe}, resumir={to_summarize}", flush=True)
+        if args.transcribe_only and to_transcribe == 0:
+            break
         if to_transcribe == 0 and to_summarize == 0:
             break
 
@@ -59,7 +62,7 @@ def main() -> None:
         if to_transcribe:
             run_step(["-m", "backend.scripts.transcribe", "--limit", "1"])
 
-        if to_summarize and not (args.transcribe_first and to_transcribe):
+        if to_summarize and not args.transcribe_only and not (args.transcribe_first and to_transcribe):
             run_step(["-m", "backend.scripts.summarize", "--limit", "1"])
 
         if not args.no_export_each:
