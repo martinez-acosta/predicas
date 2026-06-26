@@ -1,0 +1,11 @@
+sources:
+  - slug: icf-cdmx
+    name: ICF CDMX
+    preacher: Varios
+    url: https://www.youtube.com/@ICFCDMX/videos
+    enabled: true
+  - slug: andres-spyker
+    name: Andrés Spyker
+    preacher: Andrés Spyker
+    url: https://www.youtube.com/@Andr%C3%A9sSpyker
+    enabled: true

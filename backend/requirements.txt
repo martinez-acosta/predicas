@@ -1,0 +1,6 @@
+faster-whisper>=1.1.1
+openai>=1.59.0
+python-dotenv>=1.0.1
+PyYAML>=6.0.2
+yt-dlp>=2025.1.15
+
