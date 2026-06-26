@@ -6,6 +6,9 @@ from typing import Any
 import yt_dlp
 
 
+SUPPORTED_AUDIO_EXTENSIONS = (".m4a", ".mp3", ".webm", ".wav", ".opus", ".ogg")
+
+
 def _youtube_url(video_id: str) -> str:
     return f"https://www.youtube.com/watch?v={video_id}"
 
@@ -54,8 +57,20 @@ def extract_videos(source: dict[str, Any], limit: int | None = None) -> list[dic
     return videos
 
 
+def local_audio_path(video_id: str, audio_dir: Path) -> Path | None:
+    for extension in SUPPORTED_AUDIO_EXTENSIONS:
+        candidate = audio_dir / f"{video_id}{extension}"
+        if candidate.exists():
+            return candidate
+    return None
+
+
 def download_audio(video_url: str, video_id: str, audio_dir: Path) -> Path:
     audio_dir.mkdir(parents=True, exist_ok=True)
+    existing_audio = local_audio_path(video_id, audio_dir)
+    if existing_audio:
+        return existing_audio
+
     output_template = str(audio_dir / f"{video_id}.%(ext)s")
     opts: dict[str, Any] = {
         "format": "bestaudio/best",
@@ -76,4 +91,3 @@ def download_audio(video_url: str, video_id: str, audio_dir: Path) -> Path:
     if not candidates:
         raise FileNotFoundError(f"No se encontro audio descargado para {video_id}")
     return candidates[0]
-

@@ -240,12 +240,20 @@ def videos_to_transcribe(conn: sqlite3.Connection, limit: int | None) -> list[sq
       FROM videos v
       LEFT JOIN transcripts t ON t.video_id = v.video_id
       WHERE t.video_id IS NULL
+        AND v.status NOT IN ('transcribe_failed')
       ORDER BY COALESCE(v.published_at, '') DESC, v.created_at DESC
     """
     if limit:
         sql += " LIMIT ?"
         return list(conn.execute(sql, (limit,)))
     return list(conn.execute(sql))
+
+
+def mark_video_status(conn: sqlite3.Connection, video_id: str, status: str) -> None:
+    conn.execute(
+        "UPDATE videos SET status = ?, updated_at = CURRENT_TIMESTAMP WHERE video_id = ?",
+        (status, video_id),
+    )
 
 
 def transcripts_to_summarize(conn: sqlite3.Connection, limit: int | None) -> list[sqlite3.Row]:
@@ -297,4 +305,3 @@ def rebuild_fts(conn: sqlite3.Connection) -> None:
                 " ".join(json_load(row["bible_references_json"], [])),
             ),
         )
-
