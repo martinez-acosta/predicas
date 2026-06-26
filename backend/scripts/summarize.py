@@ -7,6 +7,10 @@ from backend.sermon_index.db import connect, init_db, mark_video_status, save_su
 from backend.sermon_index.summarizer import normalize_summary, stub_summary, summarize_ollama, summarize_openai
 
 
+def summary_has_text(summary: dict[str, object]) -> bool:
+    return bool(str(summary.get("summary_short") or "").strip() or str(summary.get("summary_detailed") or "").strip())
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, help="Maximo de transcripciones a resumir.")
@@ -47,6 +51,9 @@ def main() -> None:
                     payload = stub_summary(row["title"], row["transcript_text"])
 
                 summary = normalize_summary(payload)
+                if not summary_has_text(summary):
+                    raise ValueError("El proveedor devolvio un resumen vacio")
+
                 save_summary(
                     conn,
                     video_id=row["video_id"],

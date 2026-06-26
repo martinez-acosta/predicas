@@ -7,10 +7,13 @@ from typing import Any
 
 
 SYSTEM_PROMPT = """Eres un asistente que analiza predicas cristianas.
-Devuelve JSON valido, sin markdown, con estas llaves:
+Devuelve solo JSON valido, sin markdown ni texto adicional.
+El JSON debe tener exactamente estas llaves:
 summary_short, summary_detailed, outline, topics, bible_references, key_quotes.
+summary_short y summary_detailed nunca deben venir vacios.
 outline debe ser una lista de objetos con title y points.
 topics, bible_references y key_quotes deben ser listas de strings.
+Si no detectas citas biblicas, usa una lista vacia.
 Se fiel al contenido de la transcripcion; no inventes citas biblicas.
 """
 
@@ -74,6 +77,7 @@ def summarize_ollama(
             "model": selected_model,
             "stream": False,
             "format": "json",
+            "options": {"temperature": 0.2},
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": build_prompt(title, channel_name, transcript, max_chars=max_chars)},
@@ -90,15 +94,54 @@ def summarize_ollama(
     with urllib.request.urlopen(request, timeout=timeout) as response:
         payload = json.loads(response.read().decode("utf-8"))
     content = payload.get("message", {}).get("content", "{}")
-    return json.loads(content)
+    parsed = json.loads(content)
+    if not isinstance(parsed, dict):
+        raise ValueError("Ollama no devolvio un objeto JSON")
+    return parsed
 
 
 def normalize_summary(payload: dict[str, Any]) -> dict[str, Any]:
+    nested = payload.get("summary")
+    if isinstance(nested, dict):
+        payload = {**payload, **nested}
+
+    resumen = payload.get("resumen")
+    if isinstance(resumen, dict):
+        payload = {**payload, **resumen}
+
+    def first_text(*keys: str) -> str:
+        for key in keys:
+            value = payload.get(key)
+            if isinstance(value, str) and value.strip():
+                return value.strip()
+        return ""
+
+    def first_list(*keys: str) -> list[Any]:
+        for key in keys:
+            value = payload.get(key)
+            if isinstance(value, list):
+                return value
+        return []
+
     return {
-        "summary_short": str(payload.get("summary_short") or payload.get("resumen_corto") or "").strip(),
-        "summary_detailed": str(payload.get("summary_detailed") or payload.get("resumen_detallado") or "").strip(),
-        "outline": payload.get("outline") if isinstance(payload.get("outline"), list) else [],
-        "topics": payload.get("topics") if isinstance(payload.get("topics"), list) else [],
-        "bible_references": payload.get("bible_references") if isinstance(payload.get("bible_references"), list) else [],
-        "key_quotes": payload.get("key_quotes") if isinstance(payload.get("key_quotes"), list) else [],
+        "summary_short": first_text("summary_short", "short_summary", "resumen_corto", "resumen_breve", "sintesis"),
+        "summary_detailed": first_text(
+            "summary_detailed",
+            "detailed_summary",
+            "long_summary",
+            "resumen_detallado",
+            "resumen_largo",
+            "resumen",
+        ),
+        "outline": first_list("outline", "bosquejo", "estructura", "puntos"),
+        "topics": first_list("topics", "temas"),
+        "bible_references": first_list(
+            "bible_references",
+            "bible_refs",
+            "scripture_references",
+            "citas_biblicas",
+            "referencias_biblicas",
+            "pasajes_biblicos",
+        ),
+        "key_quotes": first_list("key_quotes", "quotes", "citas_clave", "frases_clave"),
     }
