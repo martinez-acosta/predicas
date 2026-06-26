@@ -1,0 +1,64 @@
+Pendientes: transcribir=631, resumir=0
+--- Ciclo 1 ---
+[youtube] Extracting URL: https://www.youtube.com/watch?v=BXKIxOZu6WY
+Cargando Whisper model=small device=cpu compute=int8
+Transcribiendo: Strong, Wise, and Grace-Filled Fathers | Alejandro Escobedo (BXKIxOZu6WY)
+[youtube] BXKIxOZu6WY: Downloading webpage
+[youtube] BXKIxOZu6WY: Downloading android vr player API JSON
+[youtube] BXKIxOZu6WY: Downloading player 5b27766f-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+WARNING: [youtube] [jsc] Remote components challenge solver script (deno) and NPM package (deno) were skipped. These may be required to solve JS challenges. You can enable these downloads with  --remote-components ejs:github  (recommended) or  --remote-components ejs:npm , respectively. For more information and alternatives, refer to  https://github.com/yt-dlp/yt-dlp/wiki/EJS
+WARNING: [youtube] BXKIxOZu6WY: n challenge solving failed: Some formats may be missing. Ensure you have a supported JavaScript runtime and challenge solver script distribution installed. Review any warnings presented before this message. For more details, refer to  https://github.com/yt-dlp/yt-dlp/wiki/EJS
+[info] BXKIxOZu6WY: Downloading 1 format(s): 251
+[download] Destination: /Users/lalomtz/Applab/predicas/data/audio/BXKIxOZu6WY.webm
+[download]   0.0% of   56.31MiB at  727.17KiB/s ETA 01:19[download]   0.0% of   56.31MiB at    1.80MiB/s ETA 00:31[download]   0.0% of   56.31MiB at    3.81MiB/s ETA 00:14[download]   0.0% of   56.31MiB at    7.52MiB/s ETA 00:07[download]   0.1% of   56.31MiB at    4.52MiB/s ETA 00:12[download]   0.1% of   56.31MiB at    4.95MiB/s ETA 00:11[download]   0.2% of   56.31MiB at    6.50MiB/s ETA 00:08[download]   0.4% of   56.31MiB at    8.83MiB/s ETA 00:06[download]   0.9% of   56.31MiB at   11.51MiB/s ETA 00:04[download]   1.8% of   56.31MiB at    6.71MiB/s ETA 00:08[download]   3.6% of   56.31MiB at   10.33MiB/s ETA 00:05[download]   7.1% of   56.31MiB at   13.36MiB/s ETA 00:03[download]  14.2% of   56.31MiB at   11.06MiB/s ETA 00:04[download]  17.3% of   56.31MiB at   11.53MiB/s ETA 00:04[download]  17.3% of   56.31MiB at  Unknown B/s ETA Unknown[download]  17.3% of   56.31MiB at  Unknown B/s ETA Unknown[download]  17.3% of   56.31MiB at  Unknown B/s ETA Unknown[download]  17.4% of   56.31MiB at  Unknown B/s ETA Unknown[download]  17.4% of   56.31MiB at    6.07MiB/s ETA 00:07  [download]  17.4% of   56.31MiB at    5.72MiB/s ETA 00:08[download]  17.6% of   56.31MiB at    7.57MiB/s ETA 00:06[download]  17.8% of   56.31MiB at    6.98MiB/s ETA 00:06[download]  18.2% of   56.31MiB at    9.41MiB/s ETA 00:04[download]  19.1% of   56.31MiB at   13.07MiB/s ETA 00:03[download]  20.9% of   56.31MiB at   18.01MiB/s ETA 00:02[download]  24.4% of   56.31MiB at   12.40MiB/s ETA 00:03[download]  31.5% of   56.31MiB at    8.93MiB/s ETA 00:04[download]  35.1% of   56.31MiB at   10.03MiB/s ETA 00:03[download]  35.1% of   56.31MiB at  Unknown B/s ETA Unknown[download]  35.1% of   56.31MiB at  Unknown B/s ETA Unknown[download]  35.1% of   56.31MiB at  Unknown B/s ETA Unknown[download]  35.1% of   56.31MiB at  Unknown B/s ETA Unknown[download]  35.1% of   56.31MiB at    6.49MiB/s ETA 00:05  [download]  35.2% of   56.31MiB at    5.09MiB/s ETA 00:07[download]  35.3% of   56.31MiB at    5.49MiB/s ETA 00:06[download]  35.5% of   56.31MiB at    8.78MiB/s ETA 00:04[download]  35.9% of   56.31MiB at   10.39MiB/s ETA 00:03[download]  36.8% of   56.31MiB at   14.03MiB/s ETA 00:02[download]  38.6% of   56.31MiB at   17.11MiB/s ETA 00:02[download]  42.2% of   56.31MiB at   12.02MiB/s ETA 00:02[download]  49.3% of   56.31MiB at   13.02MiB/s ETA 00:02[download]  52.4% of   56.31MiB at   11.31MiB/s ETA 00:02[download]  52.4% of   56.31MiB at  Unknown B/s ETA Unknown[download]  52.4% of   56.31MiB at    2.65MiB/s ETA 00:10  [download]  52.4% of   56.31MiB at    5.43MiB/s ETA 00:04[download]  52.4% of   56.31MiB at   10.44MiB/s ETA 00:02[download]  52.5% of   56.31MiB at    2.35MiB/s ETA 00:11[download]  52.5% of   56.31MiB at    3.38MiB/s ETA 00:07[download]  52.6% of   56.31MiB at    4.24MiB/s ETA 00:06[download]  52.8% of   56.31MiB at    4.96MiB/s ETA 00:05[download]  53.3% of   56.31MiB at    7.43MiB/s ETA 00:03[download]  54.2% of   56.31MiB at   10.92MiB/s ETA 00:02[download]  56.0% of   56.31MiB at   16.50MiB/s ETA 00:01[download]  59.5% of   56.31MiB at   14.43MiB/s ETA 00:01[download]  66.6% of   56.31MiB at   13.13MiB/s ETA 00:01[download]  70.1% of   56.31MiB at   13.37MiB/s ETA 00:01[download]  70.1% of   56.31MiB at  Unknown B/s ETA Unknown[download]  70.1% of   56.31MiB at  Unknown B/s ETA Unknown[download]  70.1% of   56.31MiB at  Unknown B/s ETA Unknown[download]  70.1% of   56.31MiB at  Unknown B/s ETA Unknown[download]  70.2% of   56.31MiB at    3.95MiB/s ETA 00:04  [download]  70.2% of   56.31MiB at    4.63MiB/s ETA 00:03[download]  70.3% of   56.31MiB at    5.73MiB/s ETA 00:02[download]  70.6% of   56.31MiB at    7.21MiB/s ETA 00:02[download]  71.0% of   56.31MiB at    9.74MiB/s ETA 00:01[download]  71.9% of   56.31MiB at   13.45MiB/s ETA 00:01[download]  73.7% of   56.31MiB at   18.28MiB/s ETA 00:00[download]  77.2% of   56.31MiB at   14.65MiB/s ETA 00:00[download]  84.3% of   56.31MiB at   15.23MiB/s ETA 00:00[download]  87.7% of   56.31MiB at   13.19MiB/s ETA 00:00[download]  87.7% of   56.31MiB at  Unknown B/s ETA Unknown[download]  87.8% of   56.31MiB at  Unknown B/s ETA Unknown[download]  87.8% of   56.31MiB at  Unknown B/s ETA Unknown[download]  87.8% of   56.31MiB at  Unknown B/s ETA Unknown[download]  87.8% of   56.31MiB at    6.59MiB/s ETA 00:01  [download]  87.9% of   56.31MiB at    5.42MiB/s ETA 00:01[download]  88.0% of   56.31MiB at    5.38MiB/s ETA 00:01[download]  88.2% of   56.31MiB at    8.76MiB/s ETA 00:00[download]  88.6% of   56.31MiB at   10.36MiB/s ETA 00:00[download]  89.5% of   56.31MiB at   13.76MiB/s ETA 00:00[download]  91.3% of   56.31MiB at   16.22MiB/s ETA 00:00[download]  94.8% of   56.31MiB at   14.80MiB/s ETA 00:00[download] 100.0% of   56.31MiB at   13.13MiB/s ETA 00:00[download] 100% of   56.31MiB in 00:00:04 at 11.37MiB/s  
+[ExtractAudio] Destination: /Users/lalomtz/Applab/predicas/data/audio/BXKIxOZu6WY.m4a
+Deleting original file /Users/lalomtz/Applab/predicas/data/audio/BXKIxOZu6WY.webm (pass -k to keep)
+  OK: 451 segmentos.
+Traceback (most recent call last):
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/lalomtz/Applab/predicas/backend/scripts/summarize.py", line 65, in <module>
+    main()
+  File "/Users/lalomtz/Applab/predicas/backend/scripts/summarize.py", line 38, in main
+    payload = summarize_ollama(
+  File "/Users/lalomtz/Applab/predicas/backend/sermon_index/summarizer.py", line 87, in summarize_ollama
+    with urllib.request.urlopen(request, timeout=600) as response:
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/urllib/request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/urllib/request.py", line 1352, in do_open
+    r = h.getresponse()
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+TimeoutError: timed out
+Resumiendo: Strong, Wise, and Grace-Filled Fathers | Alejandro Escobedo (BXKIxOZu6WY)
+Traceback (most recent call last):
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/lalomtz/Applab/predicas/backend/scripts/process_queue.py", line 73, in <module>
+    main()
+  File "/Users/lalomtz/Applab/predicas/backend/scripts/process_queue.py", line 60, in main
+    run_step(["-m", "backend.scripts.summarize", "--limit", "1"])
+  File "/Users/lalomtz/Applab/predicas/backend/scripts/process_queue.py", line 37, in run_step
+    subprocess.run([sys.executable, *args], check=True)
+  File "/Users/lalomtz/.asdf/installs/python/3.10.2/lib/python3.10/subprocess.py", line 524, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/lalomtz/Applab/predicas/backend/.venv/bin/python', '-m', 'backend.scripts.summarize', '--limit', '1']' returned non-zero exit status 1.
