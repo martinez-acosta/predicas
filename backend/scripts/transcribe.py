@@ -16,6 +16,7 @@ def main() -> None:
     parser.add_argument("--device", default="cpu", help="cpu, cuda, auto.")
     parser.add_argument("--compute-type", default="int8", help="int8, float16, float32.")
     parser.add_argument("--language", default="es", help="Idioma esperado.")
+    parser.add_argument("--keep-audio", action="store_true", help="Conserva el audio descargado despues de transcribir.")
     args = parser.parse_args()
 
     settings = get_settings()
@@ -54,9 +55,10 @@ def main() -> None:
                 language=getattr(info, "language", args.language),
                 model=model_name,
             )
+            if not args.keep_audio:
+                audio_path.unlink(missing_ok=True)
             print(f"  OK: {len(segments)} segmentos.")
 
 
 if __name__ == "__main__":
     main()
-

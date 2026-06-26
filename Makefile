@@ -17,7 +17,7 @@ transcribe:
 	$(PYTHON) -m backend.scripts.transcribe --limit 1 --model small
 
 summarize:
-	$(PYTHON) -m backend.scripts.summarize --limit 1 --provider stub
+	$(PYTHON) -m backend.scripts.summarize --limit 1
 
 export:
 	$(PYTHON) -m backend.scripts.export_site --include-transcripts
@@ -30,4 +30,3 @@ dev:
 
 search:
 	$(PYTHON) -m backend.scripts.search "$(q)"
-
