@@ -19,6 +19,7 @@ import * as S from "./SermonLibrary.styles";
 import type { SearchIndex, SermonDetail, SermonListItem, SiteIndex } from "@/types";
 
 type ViewMode = "search" | "preachers" | "sermons";
+type StatusFilter = "all" | "summarized" | "transcribed" | "pending";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -54,6 +55,13 @@ function statusLabel(status: string) {
   return "Pendiente";
 }
 
+function matchesStatusFilter(status: string, filter: StatusFilter) {
+  if (filter === "all") return true;
+  if (filter === "summarized") return status === "summarized";
+  if (filter === "transcribed") return status === "transcribed" || status === "summarized";
+  return status !== "transcribed" && status !== "summarized";
+}
+
 function uniqueSorted(values: string[]) {
   return Array.from(new Set(values.filter(Boolean))).sort((a, b) => a.localeCompare(b, "es"));
 }
@@ -64,6 +72,7 @@ export function SermonLibrary() {
   const [query, setQuery] = useState("");
   const [selectedSource, setSelectedSource] = useState("all");
   const [selectedBook, setSelectedBook] = useState("all");
+  const [selectedStatus, setSelectedStatus] = useState<StatusFilter>("all");
   const [selectedSermonId, setSelectedSermonId] = useState<string | null>(null);
   const [selectedDetail, setSelectedDetail] = useState<SermonDetail | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>("search");
@@ -120,6 +129,7 @@ export function SermonLibrary() {
     const scored = siteIndex.sermons
       .filter((sermon) => selectedSource === "all" || sermon.sourceSlug === selectedSource)
       .filter((sermon) => selectedBook === "all" || sermon.bibleReferences.includes(selectedBook))
+      .filter((sermon) => matchesStatusFilter(sermon.status, selectedStatus))
       .map((sermon) => {
         const searchText = searchTextById.get(sermon.id) ?? normalizeText(JSON.stringify(sermon));
         const score = terms.length === 0 ? 1 : terms.reduce((total, term) => total + (searchText.includes(term) ? 1 : 0), 0);
@@ -132,9 +142,19 @@ export function SermonLibrary() {
       });
 
     return scored.map((item) => item.sermon);
-  }, [query, searchTextById, selectedBook, selectedSource, siteIndex]);
+  }, [query, searchTextById, selectedBook, selectedSource, selectedStatus, siteIndex]);
 
   const visibleSermons = viewMode === "preachers" ? siteIndex?.sermons ?? [] : filteredSermons;
+
+  useEffect(() => {
+    if (!visibleSermons.length) {
+      setSelectedSermonId(null);
+      return;
+    }
+    if (!selectedSermonId || !visibleSermons.some((sermon) => sermon.id === selectedSermonId)) {
+      setSelectedSermonId(visibleSermons[0].id);
+    }
+  }, [selectedSermonId, visibleSermons]);
 
   if (!siteIndex) {
     return (
@@ -167,19 +187,40 @@ export function SermonLibrary() {
               Estado
             </S.PanelTitle>
             <S.StatGrid>
-              <S.StatCard $accent="#407EFF">
+              <S.StatCard $accent="#407EFF" $active={selectedStatus === "all"} onClick={() => setSelectedStatus("all")}>
                 <S.StatLabel>Prédicas</S.StatLabel>
                 <S.StatValue>{siteIndex.stats.sermons}</S.StatValue>
               </S.StatCard>
-              <S.StatCard $accent="#29B46E">
+              <S.StatCard
+                $accent="#29B46E"
+                $active={selectedStatus === "summarized"}
+                onClick={() => {
+                  setSelectedStatus("summarized");
+                  setViewMode("sermons");
+                }}
+              >
                 <S.StatLabel>Resumidas</S.StatLabel>
                 <S.StatValue>{siteIndex.stats.summarized}</S.StatValue>
               </S.StatCard>
-              <S.StatCard $accent="#67DCFF">
+              <S.StatCard
+                $accent="#67DCFF"
+                $active={viewMode === "preachers"}
+                onClick={() => {
+                  setSelectedStatus("all");
+                  setViewMode("preachers");
+                }}
+              >
                 <S.StatLabel>Fuentes</S.StatLabel>
                 <S.StatValue>{siteIndex.stats.sources}</S.StatValue>
               </S.StatCard>
-              <S.StatCard $accent="#FFAB3D">
+              <S.StatCard
+                $accent="#FFAB3D"
+                $active={selectedStatus === "transcribed"}
+                onClick={() => {
+                  setSelectedStatus("transcribed");
+                  setViewMode("sermons");
+                }}
+              >
                 <S.StatLabel>Transcritas</S.StatLabel>
                 <S.StatValue>{siteIndex.stats.transcribed}</S.StatValue>
               </S.StatCard>

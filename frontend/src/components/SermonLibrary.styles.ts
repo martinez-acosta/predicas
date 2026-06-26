@@ -134,14 +134,19 @@ export const StatGrid = styled.div`
   gap: 10px;
 `;
 
-export const StatCard = styled.div<{ $accent?: string }>`
+export const StatCard = styled.button<{ $accent?: string; $active?: boolean }>`
   position: relative;
   overflow: hidden;
+  display: block;
+  width: 100%;
   min-height: 84px;
   padding: 14px 14px 12px 18px;
-  border: 1px solid #EEF2FA;
+  border: 1px solid ${({ $active }) => ($active ? "#B9DAFF" : "#EEF2FA")};
   border-radius: 6px;
-  background: #FFFFFF;
+  background: ${({ $active }) => ($active ? theme.softBlue : "#FFFFFF")};
+  color: ${theme.textColor};
+  text-align: left;
+  cursor: pointer;
 
   &::before {
     content: "";
@@ -149,6 +154,12 @@ export const StatCard = styled.div<{ $accent?: string }>`
     inset: 0 auto 0 0;
     width: 5px;
     background: ${({ $accent }) => $accent ?? theme.secondaryColor};
+  }
+
+  &:focus-visible {
+    outline: 0;
+    border-color: ${theme.secondaryColor};
+    box-shadow: 0 0 0 3px rgba(64, 126, 255, 0.12);
   }
 `;
 
@@ -539,4 +550,3 @@ export const LoadingText = styled.div`
   font-size: 13px;
   font-weight: 700;
 `;
-
