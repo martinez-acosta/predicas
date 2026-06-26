@@ -6,13 +6,46 @@ import urllib.request
 from typing import Any
 
 
+SUMMARY_JSON_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "summary_short": {"type": "string"},
+        "summary_detailed": {"type": "string"},
+        "outline": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {"type": "string"},
+                    "points": {"type": "array", "items": {"type": "string"}},
+                },
+                "required": ["title", "points"],
+                "additionalProperties": False,
+            },
+        },
+        "topics": {"type": "array", "items": {"type": "string"}},
+        "bible_references": {"type": "array", "items": {"type": "string"}},
+        "key_quotes": {"type": "array", "items": {"type": "string"}},
+    },
+    "required": [
+        "summary_short",
+        "summary_detailed",
+        "outline",
+        "topics",
+        "bible_references",
+        "key_quotes",
+    ],
+    "additionalProperties": False,
+}
+
+
 SYSTEM_PROMPT = """Eres un asistente que analiza predicas cristianas.
 Devuelve solo JSON valido, sin markdown ni texto adicional.
 El JSON debe tener exactamente estas llaves:
 summary_short, summary_detailed, outline, topics, bible_references, key_quotes.
 summary_short debe ser una frase clara de 18 a 35 palabras.
-summary_detailed debe tener 2 a 4 parrafos con los puntos principales de la predica.
-outline debe tener al menos 3 objetos con title y points.
+summary_detailed debe tener 5 a 8 parrafos sustanciosos con los puntos principales, desarrollo pastoral, aplicaciones y advertencias de la predica.
+outline debe tener al menos 4 objetos con title y points.
 Cada points debe tener 2 a 5 frases cortas.
 topics debe tener 5 a 10 strings utiles para busqueda.
 bible_references y key_quotes deben ser listas de strings.
@@ -52,11 +85,12 @@ Genera un resumen detallado en espanol, temas, bosquejo y citas biblicas detecta
 Responde exclusivamente con este objeto JSON:
 {{
   "summary_short": "frase clara de 18 a 35 palabras",
-  "summary_detailed": "2 a 4 parrafos de resumen pastoral y tematico",
+  "summary_detailed": "5 a 8 parrafos sustanciosos de resumen pastoral y tematico",
   "outline": [
     {{"title": "Primer punto principal", "points": ["idea concreta", "idea concreta"]}},
     {{"title": "Segundo punto principal", "points": ["idea concreta", "idea concreta"]}},
-    {{"title": "Tercer punto principal", "points": ["idea concreta", "idea concreta"]}}
+    {{"title": "Tercer punto principal", "points": ["idea concreta", "idea concreta"]}},
+    {{"title": "Cuarto punto principal", "points": ["idea concreta", "idea concreta"]}}
   ],
   "topics": ["tema 1", "tema 2", "tema 3", "tema 4", "tema 5"],
   "bible_references": [],
@@ -91,25 +125,31 @@ def summarize_openai(
     from openai import OpenAI
 
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-    selected_model = model or "gpt-4o-mini"
-    response = client.chat.completions.create(
+    selected_model = model or "gpt-5.4"
+    reasoning_effort = os.getenv("OPENAI_REASONING_EFFORT", "high").strip() or "high"
+    max_output_tokens = int(os.getenv("OPENAI_MAX_OUTPUT_TOKENS", "8000"))
+    response = client.responses.create(
         model=selected_model,
-        response_format={"type": "json_object"},
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {
-                "role": "user",
-                "content": build_prompt(
-                    title,
-                    channel_name,
-                    transcript,
-                    missing_fields=missing_fields,
-                    previous_payload=previous_payload,
-                ),
+        instructions=SYSTEM_PROMPT,
+        input=build_prompt(
+            title,
+            channel_name,
+            transcript,
+            missing_fields=missing_fields,
+            previous_payload=previous_payload,
+        ),
+        reasoning={"effort": reasoning_effort},
+        max_output_tokens=max_output_tokens,
+        text={
+            "format": {
+                "type": "json_schema",
+                "name": "sermon_summary",
+                "schema": SUMMARY_JSON_SCHEMA,
+                "strict": True,
             },
-        ],
+        },
     )
-    content = response.choices[0].message.content or "{}"
+    content = response.output_text or "{}"
     return json.loads(content)
 
 
