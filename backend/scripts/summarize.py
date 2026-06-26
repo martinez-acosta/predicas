@@ -20,6 +20,39 @@ def summary_quality_errors(summary: dict[str, object]) -> list[str]:
     return errors
 
 
+def generate_summary_payload(
+    *,
+    provider: str,
+    title: str,
+    channel_name: str | None,
+    transcript: str,
+    model: str | None,
+    ollama_base_url: str,
+    missing_fields: list[str] | None = None,
+    previous_payload: dict[str, object] | None = None,
+) -> dict[str, object]:
+    if provider == "openai":
+        return summarize_openai(
+            title=title,
+            channel_name=channel_name,
+            transcript=transcript,
+            model=model,
+            missing_fields=missing_fields,
+            previous_payload=previous_payload,
+        )
+    if provider == "ollama":
+        return summarize_ollama(
+            title=title,
+            channel_name=channel_name,
+            transcript=transcript,
+            model=model,
+            base_url=ollama_base_url,
+            missing_fields=missing_fields,
+            previous_payload=previous_payload,
+        )
+    return stub_summary(title, transcript)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, help="Maximo de transcripciones a resumir.")
@@ -41,26 +74,30 @@ def main() -> None:
         for row in rows:
             print(f"Resumiendo: {row['title']} ({row['video_id']})")
             try:
-                if provider == "openai":
-                    payload = summarize_openai(
-                        title=row["title"],
-                        channel_name=row["channel_name"],
-                        transcript=row["transcript_text"],
-                        model=selected_model,
-                    )
-                elif provider == "ollama":
-                    payload = summarize_ollama(
-                        title=row["title"],
-                        channel_name=row["channel_name"],
-                        transcript=row["transcript_text"],
-                        model=selected_model,
-                        base_url=settings.ollama_base_url,
-                    )
-                else:
-                    payload = stub_summary(row["title"], row["transcript_text"])
-
+                payload = generate_summary_payload(
+                    provider=provider,
+                    title=row["title"],
+                    channel_name=row["channel_name"],
+                    transcript=row["transcript_text"],
+                    model=selected_model,
+                    ollama_base_url=settings.ollama_base_url,
+                )
                 summary = normalize_summary(payload)
                 quality_errors = summary_quality_errors(summary)
+                if quality_errors and provider in {"openai", "ollama"}:
+                    print(f"  Reintentando resumen completo; faltaba: {', '.join(quality_errors)}")
+                    payload = generate_summary_payload(
+                        provider=provider,
+                        title=row["title"],
+                        channel_name=row["channel_name"],
+                        transcript=row["transcript_text"],
+                        model=selected_model,
+                        ollama_base_url=settings.ollama_base_url,
+                        missing_fields=quality_errors,
+                        previous_payload=payload,
+                    )
+                    summary = normalize_summary(payload)
+                    quality_errors = summary_quality_errors(summary)
                 if quality_errors:
                     raise ValueError(f"El proveedor devolvio un resumen incompleto: {', '.join(quality_errors)}")
 

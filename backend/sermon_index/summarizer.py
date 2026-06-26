@@ -22,15 +22,46 @@ Se fiel al contenido de la transcripcion; no inventes citas biblicas.
 """
 
 
-def build_prompt(title: str, channel_name: str | None, transcript: str, *, max_chars: int = 120_000) -> str:
+def build_prompt(
+    title: str,
+    channel_name: str | None,
+    transcript: str,
+    *,
+    max_chars: int = 120_000,
+    missing_fields: list[str] | None = None,
+    previous_payload: dict[str, Any] | None = None,
+) -> str:
     clipped = transcript[:max_chars]
+    repair_note = ""
+    if missing_fields:
+        repair_note = f"""
+El intento anterior quedo incompleto. Faltaron estos campos: {", ".join(missing_fields)}.
+JSON anterior:
+{json.dumps(previous_payload or {}, ensure_ascii=False)[:4000]}
+
+Vuelve a generar el objeto completo, no solo los campos faltantes.
+"""
     return f"""Titulo: {title}
 Canal/predicador: {channel_name or 'No especificado'}
 
 Transcripcion:
 {clipped}
 
-Genera un resumen detallado en espanol, temas, bosquejo y citas biblicas detectadas."""
+{repair_note}
+Genera un resumen detallado en espanol, temas, bosquejo y citas biblicas detectadas.
+Responde exclusivamente con este objeto JSON:
+{{
+  "summary_short": "frase clara de 18 a 35 palabras",
+  "summary_detailed": "2 a 4 parrafos de resumen pastoral y tematico",
+  "outline": [
+    {{"title": "Primer punto principal", "points": ["idea concreta", "idea concreta"]}},
+    {{"title": "Segundo punto principal", "points": ["idea concreta", "idea concreta"]}},
+    {{"title": "Tercer punto principal", "points": ["idea concreta", "idea concreta"]}}
+  ],
+  "topics": ["tema 1", "tema 2", "tema 3", "tema 4", "tema 5"],
+  "bible_references": [],
+  "key_quotes": []
+}}"""
 
 
 def stub_summary(title: str, transcript: str) -> dict[str, Any]:
@@ -48,7 +79,15 @@ def stub_summary(title: str, transcript: str) -> dict[str, Any]:
     }
 
 
-def summarize_openai(*, title: str, channel_name: str | None, transcript: str, model: str | None) -> dict[str, Any]:
+def summarize_openai(
+    *,
+    title: str,
+    channel_name: str | None,
+    transcript: str,
+    model: str | None,
+    missing_fields: list[str] | None = None,
+    previous_payload: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     from openai import OpenAI
 
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -58,7 +97,16 @@ def summarize_openai(*, title: str, channel_name: str | None, transcript: str, m
         response_format={"type": "json_object"},
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": build_prompt(title, channel_name, transcript)},
+            {
+                "role": "user",
+                "content": build_prompt(
+                    title,
+                    channel_name,
+                    transcript,
+                    missing_fields=missing_fields,
+                    previous_payload=previous_payload,
+                ),
+            },
         ],
     )
     content = response.choices[0].message.content or "{}"
@@ -72,6 +120,8 @@ def summarize_ollama(
     transcript: str,
     model: str | None,
     base_url: str,
+    missing_fields: list[str] | None = None,
+    previous_payload: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     selected_model = model or "llama3.1"
     max_chars = int(os.getenv("OLLAMA_TRANSCRIPT_CHARS", "120000"))
@@ -84,7 +134,17 @@ def summarize_ollama(
             "options": {"temperature": 0.2},
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": build_prompt(title, channel_name, transcript, max_chars=max_chars)},
+                {
+                    "role": "user",
+                    "content": build_prompt(
+                        title,
+                        channel_name,
+                        transcript,
+                        max_chars=max_chars,
+                        missing_fields=missing_fields,
+                        previous_payload=previous_payload,
+                    ),
+                },
             ],
         }
     ).encode("utf-8")
