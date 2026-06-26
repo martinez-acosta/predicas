@@ -25,9 +25,11 @@ def pending_counts() -> tuple[int, int]:
         to_summarize = conn.execute(
             """
             SELECT COUNT(*)
-            FROM transcripts t
+            FROM videos v
+            JOIN transcripts t ON t.video_id = v.video_id
             LEFT JOIN summaries s ON s.video_id = t.video_id
             WHERE s.video_id IS NULL
+              AND v.status NOT IN ('summary_failed')
             """
         ).fetchone()[0]
     return int(to_transcribe), int(to_summarize)
@@ -41,6 +43,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--sleep", type=float, default=0.0, help="Segundos de pausa entre ciclos.")
     parser.add_argument("--no-export-each", action="store_true", help="Exporta solo al final.")
+    parser.add_argument("--transcribe-first", action="store_true", help="Transcribe todos los pendientes antes de resumir.")
     args = parser.parse_args()
 
     cycle = 0
@@ -56,7 +59,7 @@ def main() -> None:
         if to_transcribe:
             run_step(["-m", "backend.scripts.transcribe", "--limit", "1"])
 
-        if to_summarize or to_transcribe:
+        if to_summarize and not (args.transcribe_first and to_transcribe):
             run_step(["-m", "backend.scripts.summarize", "--limit", "1"])
 
         if not args.no_export_each:

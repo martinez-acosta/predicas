@@ -263,6 +263,7 @@ def transcripts_to_summarize(conn: sqlite3.Connection, limit: int | None) -> lis
       JOIN transcripts t ON t.video_id = v.video_id
       LEFT JOIN summaries s ON s.video_id = v.video_id
       WHERE s.video_id IS NULL
+        AND v.status NOT IN ('summary_failed')
       ORDER BY COALESCE(v.published_at, '') DESC, v.created_at DESC
     """
     if limit:

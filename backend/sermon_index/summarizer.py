@@ -15,8 +15,8 @@ Se fiel al contenido de la transcripcion; no inventes citas biblicas.
 """
 
 
-def build_prompt(title: str, channel_name: str | None, transcript: str) -> str:
-    clipped = transcript[:120_000]
+def build_prompt(title: str, channel_name: str | None, transcript: str, *, max_chars: int = 120_000) -> str:
+    clipped = transcript[:max_chars]
     return f"""Titulo: {title}
 Canal/predicador: {channel_name or 'No especificado'}
 
@@ -67,6 +67,8 @@ def summarize_ollama(
     base_url: str,
 ) -> dict[str, Any]:
     selected_model = model or "llama3.1"
+    max_chars = int(os.getenv("OLLAMA_TRANSCRIPT_CHARS", "120000"))
+    timeout_seconds = int(os.getenv("OLLAMA_TIMEOUT_SECONDS", "0"))
     body = json.dumps(
         {
             "model": selected_model,
@@ -74,7 +76,7 @@ def summarize_ollama(
             "format": "json",
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": build_prompt(title, channel_name, transcript)},
+                {"role": "user", "content": build_prompt(title, channel_name, transcript, max_chars=max_chars)},
             ],
         }
     ).encode("utf-8")
@@ -84,7 +86,8 @@ def summarize_ollama(
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=600) as response:
+    timeout = None if timeout_seconds <= 0 else timeout_seconds
+    with urllib.request.urlopen(request, timeout=timeout) as response:
         payload = json.loads(response.read().decode("utf-8"))
     content = payload.get("message", {}).get("content", "{}")
     return json.loads(content)
@@ -99,4 +102,3 @@ def normalize_summary(payload: dict[str, Any]) -> dict[str, Any]:
         "bible_references": payload.get("bible_references") if isinstance(payload.get("bible_references"), list) else [],
         "key_quotes": payload.get("key_quotes") if isinstance(payload.get("key_quotes"), list) else [],
     }
-

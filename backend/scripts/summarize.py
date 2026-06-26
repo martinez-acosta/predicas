@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 
 from backend.sermon_index.config import get_settings
-from backend.sermon_index.db import connect, init_db, save_summary, transcripts_to_summarize
+from backend.sermon_index.db import connect, init_db, mark_video_status, save_summary, transcripts_to_summarize
 from backend.sermon_index.summarizer import normalize_summary, stub_summary, summarize_ollama, summarize_openai
 
 
@@ -27,40 +27,43 @@ def main() -> None:
 
         for row in rows:
             print(f"Resumiendo: {row['title']} ({row['video_id']})")
-            if provider == "openai":
-                payload = summarize_openai(
-                    title=row["title"],
-                    channel_name=row["channel_name"],
-                    transcript=row["transcript_text"],
-                    model=selected_model,
-                )
-            elif provider == "ollama":
-                payload = summarize_ollama(
-                    title=row["title"],
-                    channel_name=row["channel_name"],
-                    transcript=row["transcript_text"],
-                    model=selected_model,
-                    base_url=settings.ollama_base_url,
-                )
-            else:
-                payload = stub_summary(row["title"], row["transcript_text"])
+            try:
+                if provider == "openai":
+                    payload = summarize_openai(
+                        title=row["title"],
+                        channel_name=row["channel_name"],
+                        transcript=row["transcript_text"],
+                        model=selected_model,
+                    )
+                elif provider == "ollama":
+                    payload = summarize_ollama(
+                        title=row["title"],
+                        channel_name=row["channel_name"],
+                        transcript=row["transcript_text"],
+                        model=selected_model,
+                        base_url=settings.ollama_base_url,
+                    )
+                else:
+                    payload = stub_summary(row["title"], row["transcript_text"])
 
-            summary = normalize_summary(payload)
-            save_summary(
-                conn,
-                video_id=row["video_id"],
-                provider=provider,
-                model=selected_model,
-                summary_short=summary["summary_short"],
-                summary_detailed=summary["summary_detailed"],
-                outline=summary["outline"],
-                topics=[str(item) for item in summary["topics"]],
-                bible_references=[str(item) for item in summary["bible_references"]],
-                key_quotes=[str(item) for item in summary["key_quotes"]],
-            )
-            print("  OK")
+                summary = normalize_summary(payload)
+                save_summary(
+                    conn,
+                    video_id=row["video_id"],
+                    provider=provider,
+                    model=selected_model,
+                    summary_short=summary["summary_short"],
+                    summary_detailed=summary["summary_detailed"],
+                    outline=summary["outline"],
+                    topics=[str(item) for item in summary["topics"]],
+                    bible_references=[str(item) for item in summary["bible_references"]],
+                    key_quotes=[str(item) for item in summary["key_quotes"]],
+                )
+                print("  OK")
+            except Exception as exc:
+                mark_video_status(conn, row["video_id"], "summary_failed")
+                print(f"  ERROR: se marco como summary_failed: {exc}")
 
 
 if __name__ == "__main__":
     main()
-
