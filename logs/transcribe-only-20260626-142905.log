@@ -1,2 +1,8 @@
 Pendientes: transcribir=583, resumir=35
 --- Ciclo 1 ---
+Cargando Whisper model=small device=cpu compute=int8
+Transcribiendo: Good Friendships, Clean Springs | Alejandro Escobedo (c6LYZYApgAI)
+  OK: 1258 segmentos.
+Export listo: /Users/lalomtz/Applab/predicas/frontend/public/data
+Pendientes: transcribir=582, resumir=36
+--- Ciclo 2 ---
