@@ -6,3 +6,15 @@ Transcribiendo: Good Friendships, Clean Springs | Alejandro Escobedo (c6LYZYApgA
 Export listo: /Users/lalomtz/Applab/predicas/frontend/public/data
 Pendientes: transcribir=582, resumir=36
 --- Ciclo 2 ---
+Cargando Whisper model=small device=cpu compute=int8
+Transcribiendo: Cómplices Para Vida o Para Muerte | Alejandro Escobedo (VbGABE0CVu0)
+  OK: 333 segmentos.
+Export listo: /Users/lalomtz/Applab/predicas/frontend/public/data
+Pendientes: transcribir=581, resumir=37
+--- Ciclo 3 ---
+Cargando Whisper model=small device=cpu compute=int8
+Transcribiendo: While the Wolf Is Away | Jonathan Rodriguez (uuJn1m0rv3s)
+  OK: 1164 segmentos.
+Export listo: /Users/lalomtz/Applab/predicas/frontend/public/data
+Pendientes: transcribir=580, resumir=38
+--- Ciclo 4 ---
