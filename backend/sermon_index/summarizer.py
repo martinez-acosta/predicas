@@ -10,10 +10,14 @@ SYSTEM_PROMPT = """Eres un asistente que analiza predicas cristianas.
 Devuelve solo JSON valido, sin markdown ni texto adicional.
 El JSON debe tener exactamente estas llaves:
 summary_short, summary_detailed, outline, topics, bible_references, key_quotes.
-summary_short y summary_detailed nunca deben venir vacios.
-outline debe ser una lista de objetos con title y points.
-topics, bible_references y key_quotes deben ser listas de strings.
+summary_short debe ser una frase clara de 18 a 35 palabras.
+summary_detailed debe tener 2 a 4 parrafos con los puntos principales de la predica.
+outline debe tener al menos 3 objetos con title y points.
+Cada points debe tener 2 a 5 frases cortas.
+topics debe tener 5 a 10 strings utiles para busqueda.
+bible_references y key_quotes deben ser listas de strings.
 Si no detectas citas biblicas, usa una lista vacia.
+Si no detectas frases clave textuales, usa una lista vacia.
 Se fiel al contenido de la transcripcion; no inventes citas biblicas.
 """
 
@@ -123,6 +127,29 @@ def normalize_summary(payload: dict[str, Any]) -> dict[str, Any]:
                 return value
         return []
 
+    def string_list(values: list[Any]) -> list[str]:
+        normalized = []
+        for value in values:
+            if isinstance(value, str) and value.strip():
+                normalized.append(value.strip())
+            elif isinstance(value, (int, float)):
+                normalized.append(str(value))
+        return normalized
+
+    def outline_list(values: list[Any]) -> list[dict[str, Any]]:
+        normalized = []
+        for value in values:
+            if isinstance(value, dict):
+                title = str(value.get("title") or value.get("titulo") or "").strip()
+                points = value.get("points") or value.get("puntos") or []
+                if isinstance(points, str):
+                    points = [points]
+                if title:
+                    normalized.append({"title": title, "points": string_list(points if isinstance(points, list) else [])})
+            elif isinstance(value, str) and value.strip():
+                normalized.append({"title": value.strip(), "points": []})
+        return normalized
+
     return {
         "summary_short": first_text("summary_short", "short_summary", "resumen_corto", "resumen_breve", "sintesis"),
         "summary_detailed": first_text(
@@ -133,15 +160,17 @@ def normalize_summary(payload: dict[str, Any]) -> dict[str, Any]:
             "resumen_largo",
             "resumen",
         ),
-        "outline": first_list("outline", "bosquejo", "estructura", "puntos"),
-        "topics": first_list("topics", "temas"),
-        "bible_references": first_list(
-            "bible_references",
-            "bible_refs",
-            "scripture_references",
-            "citas_biblicas",
-            "referencias_biblicas",
-            "pasajes_biblicos",
+        "outline": outline_list(first_list("outline", "bosquejo", "estructura", "puntos")),
+        "topics": string_list(first_list("topics", "temas")),
+        "bible_references": string_list(
+            first_list(
+                "bible_references",
+                "bible_refs",
+                "scripture_references",
+                "citas_biblicas",
+                "referencias_biblicas",
+                "pasajes_biblicos",
+            )
         ),
-        "key_quotes": first_list("key_quotes", "quotes", "citas_clave", "frases_clave"),
+        "key_quotes": string_list(first_list("key_quotes", "quotes", "citas_clave", "frases_clave")),
     }

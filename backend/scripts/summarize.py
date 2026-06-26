@@ -7,8 +7,17 @@ from backend.sermon_index.db import connect, init_db, mark_video_status, save_su
 from backend.sermon_index.summarizer import normalize_summary, stub_summary, summarize_ollama, summarize_openai
 
 
-def summary_has_text(summary: dict[str, object]) -> bool:
-    return bool(str(summary.get("summary_short") or "").strip() or str(summary.get("summary_detailed") or "").strip())
+def summary_quality_errors(summary: dict[str, object]) -> list[str]:
+    errors = []
+    if not str(summary.get("summary_short") or "").strip():
+        errors.append("summary_short")
+    if not str(summary.get("summary_detailed") or "").strip():
+        errors.append("summary_detailed")
+    if not summary.get("outline"):
+        errors.append("outline")
+    if not summary.get("topics"):
+        errors.append("topics")
+    return errors
 
 
 def main() -> None:
@@ -51,8 +60,9 @@ def main() -> None:
                     payload = stub_summary(row["title"], row["transcript_text"])
 
                 summary = normalize_summary(payload)
-                if not summary_has_text(summary):
-                    raise ValueError("El proveedor devolvio un resumen vacio")
+                quality_errors = summary_quality_errors(summary)
+                if quality_errors:
+                    raise ValueError(f"El proveedor devolvio un resumen incompleto: {', '.join(quality_errors)}")
 
                 save_summary(
                     conn,
