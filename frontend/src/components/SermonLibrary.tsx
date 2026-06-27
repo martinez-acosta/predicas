@@ -187,41 +187,41 @@ export function SermonLibrary() {
               Estado
             </S.PanelTitle>
             <S.StatGrid>
-              <S.StatCard $accent="#407EFF" $active={selectedStatus === "all"} onClick={() => setSelectedStatus("all")}>
-                <S.StatLabel>Prédicas</S.StatLabel>
+              <S.StatCard $accent="#2563EB" $active={selectedStatus === "all"} onClick={() => setSelectedStatus("all")}>
+                <S.StatLabel $dot="#2563EB">Prédicas</S.StatLabel>
                 <S.StatValue>{siteIndex.stats.sermons}</S.StatValue>
               </S.StatCard>
               <S.StatCard
-                $accent="#29B46E"
+                $accent="#0F9D58"
                 $active={selectedStatus === "summarized"}
                 onClick={() => {
                   setSelectedStatus("summarized");
                   setViewMode("sermons");
                 }}
               >
-                <S.StatLabel>Resumidas</S.StatLabel>
+                <S.StatLabel $dot="#0F9D58">Resumidas</S.StatLabel>
                 <S.StatValue>{siteIndex.stats.summarized}</S.StatValue>
               </S.StatCard>
               <S.StatCard
-                $accent="#67DCFF"
+                $accent="#7C5CFF"
                 $active={viewMode === "preachers"}
                 onClick={() => {
                   setSelectedStatus("all");
                   setViewMode("preachers");
                 }}
               >
-                <S.StatLabel>Fuentes</S.StatLabel>
+                <S.StatLabel $dot="#7C5CFF">Fuentes</S.StatLabel>
                 <S.StatValue>{siteIndex.stats.sources}</S.StatValue>
               </S.StatCard>
               <S.StatCard
-                $accent="#FFAB3D"
+                $accent="#B7791F"
                 $active={selectedStatus === "transcribed"}
                 onClick={() => {
                   setSelectedStatus("transcribed");
                   setViewMode("sermons");
                 }}
               >
-                <S.StatLabel>Transcritas</S.StatLabel>
+                <S.StatLabel $dot="#B7791F">Transcritas</S.StatLabel>
                 <S.StatValue>{siteIndex.stats.transcribed}</S.StatValue>
               </S.StatCard>
             </S.StatGrid>

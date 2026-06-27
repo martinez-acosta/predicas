@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import { StyledComponentsRegistry } from "@/lib/styled-components-registry";
 import { GlobalStyle } from "@/styles/GlobalStyle";
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-montserrat",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="es" className={montserrat.variable}>
+    <html lang="es" className={inter.variable}>
       <body>
         <StyledComponentsRegistry>
           <GlobalStyle />
