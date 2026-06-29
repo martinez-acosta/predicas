@@ -15,5 +15,6 @@ frontend/.env.local
 
 data/audio/
 data/cache/
+data/*.sqlite
 *.sqlite-shm
 *.sqlite-wal
