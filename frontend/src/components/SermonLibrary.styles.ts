@@ -334,6 +334,13 @@ export const SourceList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
+
+  @media (min-width: 761px) {
+    max-height: clamp(280px, calc(100vh - 420px), 620px);
+    overflow-y: auto;
+    margin-right: -6px;
+    padding-right: 6px;
+  }
 `;
 
 export const SourceButton = styled.button<{ $active?: boolean; $nested?: boolean }>`
