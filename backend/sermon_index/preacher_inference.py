@@ -2,10 +2,15 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from functools import lru_cache
+from pathlib import Path
+
+import yaml
 
 
 ICF_SOURCE_SLUG = "icf-cdmx"
 UNKNOWN_PREACHER = "Varios"
+OVERRIDES_PATH = Path(__file__).resolve().parents[2] / "data" / "preacher_overrides.yaml"
 
 ALIAS_TO_PREACHER = {
     "aaron ramirez": "Aarón Ramírez",
@@ -99,6 +104,20 @@ def slugify_preacher(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", normalized).strip("-") or "varios"
 
 
+@lru_cache(maxsize=1)
+def load_preacher_overrides() -> dict[str, str]:
+    if not OVERRIDES_PATH.exists():
+        return {}
+    payload = yaml.safe_load(OVERRIDES_PATH.read_text(encoding="utf-8")) or {}
+    overrides: dict[str, str] = {}
+    for item in payload.get("overrides") or []:
+        video_id = str(item.get("video_id") or "").strip()
+        preacher = str(item.get("preacher") or "").strip()
+        if video_id and preacher:
+            overrides[video_id] = preacher
+    return overrides
+
+
 def clean_candidate(value: str) -> str:
     value = value.replace("\u00a0", " ")
     value = re.sub(r"^@+", "", value.strip())
@@ -154,9 +173,14 @@ def title_candidates(title: str) -> list[str]:
     return candidates
 
 
-def infer_preacher(source_slug: str, title: str, fallback: str | None = None) -> str | None:
+def infer_preacher(source_slug: str, title: str, fallback: str | None = None, *, video_id: str | None = None) -> str | None:
     if source_slug != ICF_SOURCE_SLUG:
         return fallback
+
+    if video_id:
+        override = load_preacher_overrides().get(video_id)
+        if override:
+            return override
 
     candidates = title_candidates(title)
     for candidate in candidates:

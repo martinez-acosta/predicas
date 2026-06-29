@@ -21,18 +21,34 @@ export const theme = {
   // Estados (tenues)
   success: "#0F9D58",
   successSoft: "#ECF7F0",
+  successBorder: "#CDEBD9",
   warning: "#B7791F",
   warningSoft: "#FBF4E6",
+  warningBorder: "#F0E3C4",
   danger: "#DC2626",
+
+  // Estados de prédica
+  statusSummarized: "#0F9D58",
+  statusSummarizedSoft: "#ECF7F0",
+  statusTranscribed: "#2563EB",
+  statusTranscribedSoft: "#EFF4FF",
+  statusPending: "#8A8F98",
+  statusPendingSoft: "#F2F3F5",
 
   // Radios
   radiusSm: "8px",
   radiusMd: "12px",
   radiusLg: "16px",
+  radiusFull: "999px",
 
   // Sombras suaves
   shadowSm: "0 1px 2px rgba(16, 24, 40, 0.04)",
   shadowMd: "0 4px 16px rgba(16, 24, 40, 0.06)",
+  shadowLg: "0 12px 32px rgba(16, 24, 40, 0.10)",
+
+  // Transiciones
+  transitionFast: "0.15s ease",
+  transitionMed: "0.22s cubic-bezier(0.4, 0, 0.2, 1)",
 
   // Compat (referencias antiguas)
   secondaryColor: "#2563EB",

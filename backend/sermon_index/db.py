@@ -131,7 +131,7 @@ def upsert_source(conn: sqlite3.Connection, source: dict[str, Any]) -> None:
 
 
 def upsert_video(conn: sqlite3.Connection, video: dict[str, Any]) -> None:
-    preacher = infer_preacher(video["source_slug"], video["title"], video.get("preacher"))
+    preacher = infer_preacher(video["source_slug"], video["title"], video.get("preacher"), video_id=video["video_id"])
     conn.execute(
         """
         INSERT INTO videos (

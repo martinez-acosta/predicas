@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import {
+  ArrowLeft,
   BookOpen,
   Calendar,
   CheckCircle2,
@@ -11,8 +12,10 @@ import {
   List,
   PlayCircle,
   Search,
+  SlidersHorizontal,
   Tag as TagIcon,
   UserRound,
+  X,
   Youtube,
 } from "lucide-react";
 import * as S from "./SermonLibrary.styles";
@@ -53,6 +56,24 @@ function statusLabel(status: string) {
   if (status === "summarized") return "Resumida";
   if (status === "transcribed") return "Transcrita";
   return "Pendiente";
+}
+
+function statusKey(status: string): "summarized" | "transcribed" | "pending" {
+  if (status === "summarized") return "summarized";
+  if (status === "transcribed") return "transcribed";
+  return "pending";
+}
+
+function useIsMobile(breakpoint = 760) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const query = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    const update = () => setIsMobile(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, [breakpoint]);
+  return isMobile;
 }
 
 function matchesStatusFilter(status: string, filter: StatusFilter) {
@@ -102,6 +123,30 @@ export function SermonLibrary() {
   const [selectedDetail, setSelectedDetail] = useState<SermonDetail | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>("search");
   const [detailLoading, setDetailLoading] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [mobileView, setMobileView] = useState<"list" | "detail">("list");
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (!isMobile) {
+      setFiltersOpen(false);
+      setMobileView("list");
+    }
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (filtersOpen && isMobile) {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+  }, [filtersOpen, isMobile]);
+
+  const selectSermon = (id: string) => {
+    setSelectedSermonId(id);
+    if (isMobile) setMobileView("detail");
+  };
 
   useEffect(() => {
     Promise.all([
@@ -197,6 +242,10 @@ export function SermonLibrary() {
           <S.Title>Prédicas</S.Title>
         </S.BrandBlock>
         <S.HeaderActions>
+          <S.MobileFilterButton type="button" onClick={() => setFiltersOpen(true)}>
+            <SlidersHorizontal size={16} />
+            Filtros
+          </S.MobileFilterButton>
           <S.ActionButton href="https://www.youtube.com/" target="_blank" rel="noreferrer">
             <Youtube size={16} />
             YouTube
@@ -204,15 +253,30 @@ export function SermonLibrary() {
         </S.HeaderActions>
       </S.TopBar>
 
+      <S.Backdrop $open={filtersOpen} onClick={() => setFiltersOpen(false)} />
+
       <S.LayoutGrid>
-        <S.Sidebar>
+        <S.Sidebar $open={filtersOpen}>
+          <S.DrawerHeader>
+            <S.DrawerTitle>Filtros</S.DrawerTitle>
+            <S.IconButton type="button" aria-label="Cerrar filtros" onClick={() => setFiltersOpen(false)}>
+              <X size={18} />
+            </S.IconButton>
+          </S.DrawerHeader>
           <S.Panel>
             <S.PanelTitle>
               <CheckCircle2 size={17} />
               Estado
             </S.PanelTitle>
             <S.StatGrid>
-              <S.StatCard $accent="#2563EB" $active={selectedStatus === "all"} onClick={() => setSelectedStatus("all")}>
+              <S.StatCard
+                $accent="#2563EB"
+                $active={selectedStatus === "all"}
+                onClick={() => {
+                  setSelectedStatus("all");
+                  setFiltersOpen(false);
+                }}
+              >
                 <S.StatLabel $dot="#2563EB">Prédicas</S.StatLabel>
                 <S.StatValue>{siteIndex.stats.sermons}</S.StatValue>
               </S.StatCard>
@@ -222,6 +286,7 @@ export function SermonLibrary() {
                 onClick={() => {
                   setSelectedStatus("summarized");
                   setViewMode("sermons");
+                  setFiltersOpen(false);
                 }}
               >
                 <S.StatLabel $dot="#0F9D58">Resumidas</S.StatLabel>
@@ -233,6 +298,7 @@ export function SermonLibrary() {
                 onClick={() => {
                   setSelectedStatus("all");
                   setViewMode("preachers");
+                  setFiltersOpen(false);
                 }}
               >
                 <S.StatLabel $dot="#7C5CFF">Fuentes</S.StatLabel>
@@ -244,6 +310,7 @@ export function SermonLibrary() {
                 onClick={() => {
                   setSelectedStatus("transcribed");
                   setViewMode("sermons");
+                  setFiltersOpen(false);
                 }}
               >
                 <S.StatLabel $dot="#B7791F">Transcritas</S.StatLabel>
@@ -258,7 +325,13 @@ export function SermonLibrary() {
               Predicadores
             </S.PanelTitle>
             <S.SourceList>
-              <S.SourceButton $active={selectedSource === "all"} onClick={() => setSelectedSource("all")}>
+              <S.SourceButton
+                $active={selectedSource === "all"}
+                onClick={() => {
+                  setSelectedSource("all");
+                  setFiltersOpen(false);
+                }}
+              >
                 <UserRound size={17} />
                 <span>
                   <S.SourceName>Todos</S.SourceName>
@@ -273,6 +346,7 @@ export function SermonLibrary() {
                     onClick={() => {
                       setSelectedSource(sourceFilterKey(preacher.slug));
                       setViewMode("sermons");
+                      setFiltersOpen(false);
                     }}
                   >
                     <UserRound size={17} />
@@ -290,6 +364,7 @@ export function SermonLibrary() {
                       onClick={() => {
                         setSelectedSource(speaker.key);
                         setViewMode("sermons");
+                        setFiltersOpen(false);
                       }}
                     >
                       <UserRound size={15} />
@@ -357,28 +432,46 @@ export function SermonLibrary() {
           </S.SearchPanel>
 
           <S.ContentGrid>
-            <S.ResultList>
-              {visibleSermons.length === 0 ? (
-                <S.EmptyState>No hay prédicas para los filtros seleccionados.</S.EmptyState>
-              ) : (
-                visibleSermons.map((sermon) => (
-                  <SermonResult
-                    key={sermon.id}
-                    sermon={sermon}
-                    active={sermon.id === selectedSermonId}
-                    onSelect={() => setSelectedSermonId(sermon.id)}
-                  />
-                ))
-              )}
-            </S.ResultList>
+            {!(isMobile && mobileView === "detail") ? (
+              <S.ResultList>
+                {visibleSermons.length === 0 ? (
+                  <S.EmptyState>No hay prédicas para los filtros seleccionados.</S.EmptyState>
+                ) : (
+                  visibleSermons.map((sermon) => (
+                    <SermonResult
+                      key={sermon.id}
+                      sermon={sermon}
+                      active={sermon.id === selectedSermonId}
+                      onSelect={() => selectSermon(sermon.id)}
+                    />
+                  ))
+                )}
+              </S.ResultList>
+            ) : null}
 
-            {detailLoading ? (
-              <S.EmptyState>Cargando prédica...</S.EmptyState>
-            ) : selectedDetail ? (
-              <SermonDetailPanel detail={selectedDetail} />
-            ) : (
-              <S.EmptyState>Selecciona una prédica.</S.EmptyState>
-            )}
+            {!isMobile ? (
+              detailLoading ? (
+                <S.EmptyState>Cargando prédica...</S.EmptyState>
+              ) : selectedDetail ? (
+                <SermonDetailPanel detail={selectedDetail} />
+              ) : (
+                <S.EmptyState>Selecciona una prédica.</S.EmptyState>
+              )
+            ) : mobileView === "detail" ? (
+              <div>
+                <S.BackButton type="button" onClick={() => setMobileView("list")}>
+                  <ArrowLeft size={16} />
+                  Volver a la lista
+                </S.BackButton>
+                {detailLoading ? (
+                  <S.EmptyState>Cargando prédica...</S.EmptyState>
+                ) : selectedDetail ? (
+                  <SermonDetailPanel detail={selectedDetail} />
+                ) : (
+                  <S.EmptyState>Selecciona una prédica.</S.EmptyState>
+                )}
+              </div>
+            ) : null}
           </S.ContentGrid>
         </S.MainColumn>
       </S.LayoutGrid>
@@ -399,7 +492,7 @@ function SermonResult({
     <S.ResultCard $active={active} onClick={onSelect}>
       <S.ResultHeader>
         <S.ResultTitle>{sermon.title}</S.ResultTitle>
-        <S.Tag $tone="status">{statusLabel(sermon.status)}</S.Tag>
+        <S.StatusBadge $status={statusKey(sermon.status)}>{statusLabel(sermon.status)}</S.StatusBadge>
       </S.ResultHeader>
       <S.ResultMeta>
         <S.MetaItem>

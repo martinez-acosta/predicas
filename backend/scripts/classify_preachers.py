@@ -33,7 +33,7 @@ def main() -> None:
             (ICF_SOURCE_SLUG,),
         ).fetchall()
         for row in rows:
-            preacher = infer_preacher(row["source_slug"], row["title"], "Varios")
+            preacher = infer_preacher(row["source_slug"], row["title"], "Varios", video_id=row["video_id"])
             counts[preacher or "Varios"] += 1
             if preacher and preacher != row["preacher"]:
                 conn.execute(

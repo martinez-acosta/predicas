@@ -113,7 +113,7 @@ export const LayoutGrid = styled.div`
   }
 `;
 
-export const Sidebar = styled.aside`
+export const Sidebar = styled.aside<{ $open?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -122,6 +122,126 @@ export const Sidebar = styled.aside`
     position: sticky;
     top: 28px;
     align-self: start;
+  }
+
+  @media (max-width: 760px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    width: min(330px, 86vw);
+    padding: 16px;
+    overflow-y: auto;
+    background: ${theme.background};
+    border-right: 1px solid ${theme.border};
+    box-shadow: ${theme.shadowLg};
+    transform: translateX(${({ $open }) => ($open ? "0" : "-105%")});
+    transition: transform ${theme.transitionMed};
+  }
+`;
+
+export const Backdrop = styled.div<{ $open?: boolean }>`
+  display: none;
+
+  @media (max-width: 760px) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    background: rgba(16, 24, 40, 0.4);
+    opacity: ${({ $open }) => ($open ? 1 : 0)};
+    pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
+    transition: opacity ${theme.transitionMed};
+  }
+`;
+
+export const DrawerHeader = styled.div`
+  display: none;
+
+  @media (max-width: 760px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+`;
+
+export const DrawerTitle = styled.span`
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: ${theme.text};
+`;
+
+export const IconButton = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: ${theme.radiusSm};
+  border: 1px solid ${theme.border};
+  background: ${theme.surface};
+  color: ${theme.textSecondary};
+  transition: background ${theme.transitionFast}, border-color ${theme.transitionFast};
+
+  &:hover {
+    background: ${theme.surfaceMuted};
+    border-color: ${theme.borderStrong};
+  }
+
+  ${focusRing}
+`;
+
+export const MobileFilterButton = styled.button`
+  display: none;
+
+  @media (max-width: 760px) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: ${theme.radiusSm};
+    color: ${theme.text};
+    background: ${theme.surface};
+    border: 1px solid ${theme.borderStrong};
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: ${theme.shadowSm};
+
+    svg {
+      color: ${theme.textMuted};
+    }
+  }
+`;
+
+export const BackButton = styled.button`
+  display: none;
+
+  @media (max-width: 760px) {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+    padding: 8px 12px 8px 8px;
+    border: 1px solid ${theme.border};
+    border-radius: ${theme.radiusSm};
+    background: ${theme.surface};
+    color: ${theme.textSecondary};
+    font-size: 13px;
+    font-weight: 500;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:active {
+      background: ${theme.surfaceMuted};
+    }
   }
 `;
 
@@ -166,11 +286,18 @@ export const StatCard = styled.button<{ $accent?: string; $active?: boolean }>`
   background: ${({ $active }) => ($active ? theme.accentSoft : theme.surface)};
   color: ${theme.text};
   text-align: left;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background ${theme.transitionFast}, border-color ${theme.transitionFast},
+    transform ${theme.transitionMed}, box-shadow ${theme.transitionMed};
 
   &:hover {
     border-color: ${({ $active }) => ($active ? theme.accentBorder : theme.borderStrong)};
     background: ${({ $active }) => ($active ? theme.accentSoft : theme.surfaceMuted)};
+    transform: translateY(-1px);
+    box-shadow: ${theme.shadowSm};
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   ${focusRing}
@@ -359,14 +486,26 @@ export const TabRow = styled.div`
   padding: 4px;
   background: ${theme.surfaceMuted};
   border-radius: ${theme.radiusSm};
+
+  @media (max-width: 560px) {
+    display: flex;
+    width: 100%;
+  }
 `;
 
 export const TabButton = styled.button<{ $active?: boolean }>`
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
   min-height: 34px;
   padding: 0 14px;
+
+  @media (max-width: 560px) {
+    flex: 1;
+    min-height: 40px;
+    padding: 0 8px;
+  }
   border: 0;
   border-radius: 6px;
   color: ${({ $active }) => ($active ? theme.text : theme.textSecondary)};
@@ -409,17 +548,37 @@ export const ResultCard = styled.button<{ $active?: boolean }>`
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  padding: 16px;
+  padding: 16px 16px 16px 18px;
   border: 1px solid ${({ $active }) => ($active ? theme.accentBorder : theme.border)};
   border-radius: ${theme.radiusMd};
   background: ${({ $active }) => ($active ? theme.accentSoft : theme.surface)};
   color: ${theme.text};
   text-align: left;
-  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+  transition: border-color ${theme.transitionFast}, background ${theme.transitionFast},
+    box-shadow ${theme.transitionMed}, transform ${theme.transitionMed};
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    background: ${theme.accent};
+    opacity: ${({ $active }) => ($active ? 1 : 0)};
+    transform: scaleY(${({ $active }) => ($active ? 1 : 0.4)});
+    transition: opacity ${theme.transitionMed}, transform ${theme.transitionMed};
+  }
 
   &:hover {
     border-color: ${({ $active }) => ($active ? theme.accentBorder : theme.borderStrong)};
     box-shadow: ${theme.shadowMd};
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   ${focusRing}
@@ -438,6 +597,10 @@ export const ResultTitle = styled.h3`
   font-size: 15px;
   line-height: 1.4;
   font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
 export const ResultMeta = styled.div`
@@ -477,38 +640,52 @@ export const TagRow = styled.div`
   gap: 6px;
 `;
 
-export const Tag = styled.span<{ $tone?: "topic" | "book" | "status" }>`
+export const Tag = styled.span<{ $tone?: "topic" | "book" }>`
   display: inline-flex;
   align-items: center;
   gap: 4px;
   height: 23px;
   padding: 0 9px;
   border-radius: 6px;
-  border: 1px solid
-    ${({ $tone }) =>
-      $tone === "book"
-        ? "transparent"
-        : $tone === "status"
-        ? "transparent"
-        : theme.border};
-  color: ${({ $tone }) =>
-    $tone === "book"
-      ? theme.success
-      : $tone === "status"
-      ? theme.warning
-      : theme.textSecondary};
-  background: ${({ $tone }) =>
-    $tone === "book"
-      ? theme.successSoft
-      : $tone === "status"
-      ? theme.warningSoft
-      : theme.surfaceMuted};
+  border: 1px solid ${({ $tone }) => ($tone === "book" ? theme.successBorder : theme.border)};
+  color: ${({ $tone }) => ($tone === "book" ? theme.success : theme.textSecondary)};
+  background: ${({ $tone }) => ($tone === "book" ? theme.successSoft : theme.surfaceMuted)};
   font-size: 12px;
   font-weight: 500;
+  transition: background ${theme.transitionFast}, border-color ${theme.transitionFast};
 
   svg {
     width: 12px;
     height: 12px;
+  }
+`;
+
+const statusColors = {
+  summarized: { fg: theme.statusSummarized, bg: theme.statusSummarizedSoft },
+  transcribed: { fg: theme.statusTranscribed, bg: theme.statusTranscribedSoft },
+  pending: { fg: theme.statusPending, bg: theme.statusPendingSoft },
+} as const;
+
+export const StatusBadge = styled.span<{ $status?: keyof typeof statusColors }>`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 23px;
+  padding: 0 10px;
+  border-radius: ${theme.radiusFull};
+  white-space: nowrap;
+  color: ${({ $status }) => statusColors[$status ?? "pending"].fg};
+  background: ${({ $status }) => statusColors[$status ?? "pending"].bg};
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: ${theme.radiusFull};
+    background: currentColor;
   }
 `;
 

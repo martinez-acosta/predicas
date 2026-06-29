@@ -1,0 +1,232 @@
+overrides:
+  # ICF CDMX: predicadores claros en el titulo
+  - video_id: k6ssG6r4IK8
+    preacher: Alejandro Escobedo
+    note: "Titulo: Alejandro Escobedo Amando La Iglesia Pt 2"
+  - video_id: rVmcIBPPqe4
+    preacher: Alejandro Escobedo
+    note: "Titulo: La Promesa y La Primicia Alejandro Escobedo"
+  - video_id: nDJTIUdhyy0
+    preacher: Bill Wilson
+  - video_id: ghAskrJjyPw
+    preacher: Alex Sagot
+  - video_id: n80rfWS7QwU
+    preacher: David Ireland
+  - video_id: q34Z1uMBMDU
+    preacher: Diego Hansen
+  - video_id: "-CgnX-WnqNo"
+    preacher: Daniel Dimiro
+  - video_id: 9Md2JTxb6hQ
+    preacher: Cristian Scheelje
+  - video_id: 1QXE23p-vdY
+    preacher: Fred Hartley
+  - video_id: yT1Ab82dvig
+    preacher: Gerry Testori
+  - video_id: foZUqF67py0
+    preacher: Hugo Martínez
+  - video_id: D742P48EohM
+    preacher: Hugo y Tati Martínez
+  - video_id: M7WzdbVJTUk
+    preacher: Josh McDowell
+  - video_id: q20yEgCh21s
+    preacher: Kathleen Scataglini
+  - video_id: H9IgRlnophY
+    preacher: Kharis Millán
+  - video_id: DxeuZrCEDuE
+    preacher: Rebecca Myers
+  - video_id: Ai77GrDJMvQ
+    preacher: Luis Mellado
+  - video_id: qWmatNdbZ5o
+    preacher: Manuel Villafana
+  - video_id: 8KaNvzes7UU
+    preacher: Marcos Scott
+  - video_id: LEEiv57wNCg
+    preacher: Miguel Cassina
+  - video_id: ge1V21VNQhM
+    preacher: Miguel Cassina
+  - video_id: mQc_PDh9ud0
+    preacher: Dan Slade
+  - video_id: 3fE5zLx3vFw
+    preacher: Iván Hernández
+  - video_id: "-HVP-M-jd6g"
+    preacher: Alejandro Escobedo
+  - video_id: Weq5_EJDBUo
+    preacher: Alejandro Escobedo
+  - video_id: gF-5PXbIoNA
+    preacher: Enrique Bremer
+  - video_id: jQh6PLGhMP4
+    preacher: Raúl Martínez
+  - video_id: l-y1aXdO3ks
+    preacher: Ricardo Solano
+  - video_id: GDKoUbFH47g
+    preacher: Sergio Belart
+  - video_id: rRAzkoi-BmI
+    preacher: Taylor Barriger
+  - video_id: 4LA8aTtppDk
+    preacher: David Campbell
+  - video_id: 8pV07VF_zMc
+    preacher: Torres Nilo
+  - video_id: xNRMHiKkAPA
+    preacher: Vincent Fernández
+  - video_id: bqQ86bVSQO4
+    preacher: Lucas Magnin
+  - video_id: 3QxLZWk_JFc
+    preacher: Yonathan Lara
+  - video_id: COwBbjeDG1A
+    preacher: Raúl Martínez
+  - video_id: 38a9CjipVHI
+    preacher: Rodolfo Garza
+
+  # Podcasts / series
+  - video_id: UYQPiH_Wpi0
+    preacher: Luz Eterna Podcast
+  - video_id: WCP0J7vcmEQ
+    preacher: Luz Eterna Podcast
+  - video_id: 1_AeY7ZtAO0
+    preacher: Luz Eterna Podcast
+  - video_id: s9aMXvW8FH4
+    preacher: Luz Eterna Podcast
+  - video_id: RC2NS5_wFrA
+    preacher: Luz Eterna Podcast
+  - video_id: qZAr46D2QnI
+    preacher: Luz Eterna Podcast
+  - video_id: guJNSGPup9Q
+    preacher: Luz Eterna Podcast
+  - video_id: jeLoe2L1DMA
+    preacher: Luz Eterna Podcast
+  - video_id: SfhtOYSKBYg
+    preacher: Luz Eterna Podcast
+  - video_id: 0FFggW0fY_I
+    preacher: Luz Eterna Podcast
+  - video_id: 41vykaVAN-I
+    preacher: Luz Eterna Podcast
+  - video_id: 4MMmuBDDfuY
+    preacher: Luz Eterna Podcast
+  - video_id: WPeLFDXSvVc
+    preacher: Luz Eterna Podcast
+  - video_id: kVJtmeBAEMk
+    preacher: Luz Eterna Podcast
+  - video_id: mhJ0JcAT2rw
+    preacher: Luz Eterna Podcast
+  - video_id: E_B-6bmBWg0
+    preacher: Luz Eterna Podcast
+  - video_id: TjScL_2I8DQ
+    preacher: Luz Eterna Podcast
+  - video_id: MxzBD7tk9y0
+    preacher: Luz Eterna Podcast
+  - video_id: bS3xIgfEiTc
+    preacher: Luz Eterna Podcast
+  - video_id: mYd0EGFn1cs
+    preacher: Luz Eterna Podcast
+  - video_id: y_ROVvNSj-Q
+    preacher: Luz Eterna Podcast
+  - video_id: vd5dz2IkXXE
+    preacher: Luz Eterna Podcast
+  - video_id: ajqa1WVKzBA
+    preacher: Luz Eterna Podcast
+  - video_id: i96jbsfDLwY
+    preacher: Luz Eterna Podcast
+  - video_id: BH5Lx8U_2X4
+    preacher: Luz Eterna Podcast
+  - video_id: 06-Rx09ucOs
+    preacher: Luz Eterna Podcast
+  - video_id: W63Wngduicg
+    preacher: Luz Eterna Podcast
+  - video_id: TdBA3LSpHB0
+    preacher: Luz Eterna Podcast
+  - video_id: Tz0EF2sc4B8
+    preacher: Luz Eterna Podcast
+  - video_id: JnbzmUTk-4U
+    preacher: Luz Eterna Podcast
+  - video_id: ypnYzCaALDc
+    preacher: Luz Eterna Podcast
+  - video_id: BfvK7i9-t8g
+    preacher: Luz Eterna Podcast
+  - video_id: P0cjQEIunLY
+    preacher: Luz Eterna Podcast
+  - video_id: YXx81eXMIhg
+    preacher: Luz Eterna Podcast
+  - video_id: nR8tzDydtQw
+    preacher: Luz Eterna Podcast
+  - video_id: ODPglJaT-og
+    preacher: Luz Eterna Podcast
+  - video_id: gjYzAR-BZV4
+    preacher: Luz Eterna Podcast
+  - video_id: G9tfmSS5qSY
+    preacher: Conversations at the Table
+  - video_id: ZNNNL3dxE3w
+    preacher: Entre Líderes Podcast CGL
+
+  # Música / jóvenes / kids / eventos
+  - video_id: BJtmA-cltls
+    preacher: La Tribu / Jóvenes Unidos
+  - video_id: mHHdERjISTo
+    preacher: Música ICF
+  - video_id: ZogHSDJ3Hi8
+    preacher: Música ICF
+  - video_id: A-rNf8igeIM
+    preacher: Música ICF
+  - video_id: pID1JjY3eQg
+    preacher: Música ICF
+  - video_id: GFHWbfRs6_8
+    preacher: ICF Kids
+  - video_id: GFQxhnXgKTQ
+    preacher: Navidad ICF
+  - video_id: Qh07NuIcTBo
+    preacher: Navidad ICF
+  - video_id: _1UjS1K998E
+    preacher: Navidad ICF
+  - video_id: mOGQYw8molc
+    preacher: Navidad ICF
+  - video_id: egPWvESwl7M
+    preacher: Navidad ICF
+  - video_id: Xx-oBXRUKuY
+    preacher: Navidad ICF
+  - video_id: 31liDTl525Q
+    preacher: Navidad ICF
+  - video_id: xq8E1gLT1SI
+    preacher: ICF en Casa
+  - video_id: q7eIVaGKLfI
+    preacher: ICF en Casa
+  - video_id: VtXtgjm97P0
+    preacher: ICF en Casa
+  - video_id: WlnB8T7GV7s
+    preacher: ICF en Casa
+  - video_id: 9j66bu3W-ZU
+    preacher: ICF Moments
+  - video_id: tBW4fcqqfZY
+    preacher: Orígenes
+  - video_id: 6TiMWB4JhyU
+    preacher: Cumbre Global de Liderazgo
+  - video_id: QFQThclaO6g
+    preacher: Cumbre Global de Liderazgo
+  - video_id: HZ-urQQy9vI
+    preacher: Cumbre Global de Liderazgo
+  - video_id: IMPkx7-_KfU
+    preacher: Explosión Juvenil
+  - video_id: YnimTV0O6nA
+    preacher: Explosión Juvenil
+
+  # ICF institucional / especiales sin predicador confiable
+  - video_id: MxZzEj_Wj1U
+    preacher: Especiales ICF
+  - video_id: KK89cEGWw60
+    preacher: Especiales ICF
+  - video_id: G_wsVaBvFVs
+    preacher: Especiales ICF
+  - video_id: lxLKJcXvdZE
+    preacher: Especiales ICF
+  - video_id: hoE250irzWU
+    preacher: Especiales ICF
+  - video_id: nQLAcjdHFyM
+    preacher: Especiales ICF
+  - video_id: ObMyK0dIRHM
+    preacher: Especiales ICF
+  - video_id: xVTjKnKD3yY
+    preacher: Especiales ICF
+  - video_id: D5pTfkK6vIA
+    preacher: Especiales ICF
+  - video_id: TD4dfjbICKE
+    preacher: Especiales ICF
+  - video_id: Mx0VIt981aw
+    preacher: Especiales ICF
