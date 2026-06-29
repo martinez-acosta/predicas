@@ -238,19 +238,23 @@ def save_summary(
     conn.execute("UPDATE videos SET status = 'summarized', updated_at = CURRENT_TIMESTAMP WHERE video_id = ?", (video_id,))
 
 
-def videos_to_transcribe(conn: sqlite3.Connection, limit: int | None) -> list[sqlite3.Row]:
+def videos_to_transcribe(conn: sqlite3.Connection, limit: int | None, source_slug: str | None = None) -> list[sqlite3.Row]:
     sql = """
       SELECT v.*
       FROM videos v
       LEFT JOIN transcripts t ON t.video_id = v.video_id
       WHERE t.video_id IS NULL
         AND v.status NOT IN ('transcribe_failed')
-      ORDER BY COALESCE(v.published_at, '') DESC, v.created_at DESC
     """
+    params: list[Any] = []
+    if source_slug:
+        sql += " AND v.source_slug = ?"
+        params.append(source_slug)
+    sql += " ORDER BY COALESCE(v.published_at, '') DESC, v.created_at DESC"
     if limit:
         sql += " LIMIT ?"
-        return list(conn.execute(sql, (limit,)))
-    return list(conn.execute(sql))
+        params.append(limit)
+    return list(conn.execute(sql, params))
 
 
 def mark_video_status(conn: sqlite3.Connection, video_id: str, status: str) -> None:
@@ -260,7 +264,7 @@ def mark_video_status(conn: sqlite3.Connection, video_id: str, status: str) -> N
     )
 
 
-def transcripts_to_summarize(conn: sqlite3.Connection, limit: int | None) -> list[sqlite3.Row]:
+def transcripts_to_summarize(conn: sqlite3.Connection, limit: int | None, source_slug: str | None = None) -> list[sqlite3.Row]:
     sql = """
       SELECT v.*, t.text AS transcript_text, t.segments_json
       FROM videos v
@@ -268,12 +272,16 @@ def transcripts_to_summarize(conn: sqlite3.Connection, limit: int | None) -> lis
       LEFT JOIN summaries s ON s.video_id = v.video_id
       WHERE s.video_id IS NULL
         AND v.status NOT IN ('summary_failed')
-      ORDER BY COALESCE(v.published_at, '') DESC, v.created_at DESC
     """
+    params: list[Any] = []
+    if source_slug:
+        sql += " AND v.source_slug = ?"
+        params.append(source_slug)
+    sql += " ORDER BY COALESCE(v.published_at, '') DESC, v.created_at DESC"
     if limit:
         sql += " LIMIT ?"
-        return list(conn.execute(sql, (limit,)))
-    return list(conn.execute(sql))
+        params.append(limit)
+    return list(conn.execute(sql, params))
 
 
 def rebuild_fts(conn: sqlite3.Connection) -> None:

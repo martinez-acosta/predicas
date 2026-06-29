@@ -58,6 +58,7 @@ def main() -> None:
     parser.add_argument("--limit", type=int, help="Maximo de transcripciones a resumir.")
     parser.add_argument("--provider", choices=["stub", "openai", "ollama"], default=None)
     parser.add_argument("--model", default=None)
+    parser.add_argument("--source", help="Solo resume transcripciones de esta fuente.")
     args = parser.parse_args()
 
     settings = get_settings()
@@ -66,7 +67,7 @@ def main() -> None:
 
     with connect(settings.database_path) as conn:
         init_db(conn)
-        rows = transcripts_to_summarize(conn, args.limit)
+        rows = transcripts_to_summarize(conn, args.limit, source_slug=args.source)
         if not rows:
             print("No hay transcripciones pendientes de resumen.")
             return

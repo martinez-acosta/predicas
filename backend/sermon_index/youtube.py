@@ -13,6 +13,10 @@ def _youtube_url(video_id: str) -> str:
     return f"https://www.youtube.com/watch?v={video_id}"
 
 
+def _is_video_id(value: str) -> bool:
+    return len(value) == 11
+
+
 def extract_videos(source: dict[str, Any], limit: int | None = None) -> list[dict[str, Any]]:
     opts: dict[str, Any] = {
         "quiet": True,
@@ -32,7 +36,7 @@ def extract_videos(source: dict[str, Any], limit: int | None = None) -> list[dic
         if not entry:
             continue
         video_id = entry.get("id")
-        if not video_id:
+        if not video_id or not _is_video_id(str(video_id)):
             continue
         title = entry.get("title") or "Sin titulo"
         videos.append(

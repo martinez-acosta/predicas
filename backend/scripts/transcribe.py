@@ -18,6 +18,7 @@ def main() -> None:
     parser.add_argument("--language", default="es", help="Idioma esperado.")
     parser.add_argument("--keep-audio", action="store_true", help="Conserva el audio descargado despues de transcribir.")
     parser.add_argument("--local-only", action="store_true", help="Solo transcribe audios ya existentes en AUDIO_DIR.")
+    parser.add_argument("--source", help="Solo transcribe videos de esta fuente.")
     args = parser.parse_args()
 
     settings = get_settings()
@@ -25,7 +26,7 @@ def main() -> None:
 
     with connect(settings.database_path) as conn:
         init_db(conn)
-        rows = videos_to_transcribe(conn, None if args.local_only else args.limit)
+        rows = videos_to_transcribe(conn, None if args.local_only else args.limit, source_slug=args.source)
         if args.local_only:
             rows = [row for row in rows if local_audio_path(row["video_id"], settings.audio_dir)]
             if args.limit:
