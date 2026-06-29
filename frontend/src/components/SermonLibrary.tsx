@@ -131,6 +131,14 @@ export function SermonLibrary() {
   const [expandedSources, setExpandedSources] = useState<Set<string>>(new Set());
   const isMobile = useIsMobile();
 
+  const resetLibraryFilters = () => {
+    setQuery("");
+    setSelectedSource("all");
+    setSelectedBook("all");
+    setSelectedStatus("all");
+    setViewMode("sermons");
+  };
+
   const toggleSource = (slug: string) => {
     setExpandedSources((prev) => {
       const next = new Set(prev);
@@ -248,7 +256,7 @@ export function SermonLibrary() {
       .map(({ preacher, speakers }) => ({ preacher, speakers }));
   }, [siteIndex, isFilteringPreachers, normalizedPreacherFilter]);
 
-  const visibleSermons = viewMode === "preachers" ? siteIndex?.sermons ?? [] : filteredSermons;
+  const visibleSermons = filteredSermons;
 
   useEffect(() => {
     if (!visibleSermons.length) {
@@ -307,7 +315,7 @@ export function SermonLibrary() {
                 $accent="#2563EB"
                 $active={selectedStatus === "all"}
                 onClick={() => {
-                  setSelectedStatus("all");
+                  resetLibraryFilters();
                   setFiltersOpen(false);
                 }}
               >
@@ -373,6 +381,7 @@ export function SermonLibrary() {
                     $active={selectedSource === "all"}
                     onClick={() => {
                       setSelectedSource("all");
+                      setViewMode("sermons");
                       setFiltersOpen(false);
                     }}
                   >
@@ -449,7 +458,13 @@ export function SermonLibrary() {
                   placeholder="Jonás, ansiedad, perdón, Romanos..."
                 />
               </S.InputWrap>
-              <S.Select value={selectedSource} onChange={(event) => setSelectedSource(event.target.value)}>
+              <S.Select
+                value={selectedSource}
+                onChange={(event) => {
+                  setSelectedSource(event.target.value);
+                  setViewMode("sermons");
+                }}
+              >
                 <option value="all">Todos los predicadores</option>
                 {siteIndex.preachers.map((preacher) => (
                   <optgroup key={preacher.slug} label={preacher.name}>
