@@ -6,10 +6,12 @@ import {
   BookOpen,
   Calendar,
   CheckCircle2,
+  ChevronDown,
   Clock,
   ExternalLink,
   FileText,
   List,
+  Mic,
   PlayCircle,
   Search,
   SlidersHorizontal,
@@ -125,7 +127,18 @@ export function SermonLibrary() {
   const [detailLoading, setDetailLoading] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [mobileView, setMobileView] = useState<"list" | "detail">("list");
+  const [preacherFilter, setPreacherFilter] = useState("");
+  const [expandedSources, setExpandedSources] = useState<Set<string>>(new Set());
   const isMobile = useIsMobile();
+
+  const toggleSource = (slug: string) => {
+    setExpandedSources((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug);
+      else next.add(slug);
+      return next;
+    });
+  };
 
   useEffect(() => {
     if (!isMobile) {
@@ -213,6 +226,27 @@ export function SermonLibrary() {
 
     return scored.map((item) => item.sermon);
   }, [query, searchTextById, selectedBook, selectedSource, selectedStatus, siteIndex]);
+
+  const normalizedPreacherFilter = normalizeText(preacherFilter.trim());
+  const isFilteringPreachers = normalizedPreacherFilter.length > 0;
+
+  const visiblePreachers = useMemo(() => {
+    const preachers = siteIndex?.preachers ?? [];
+    if (!isFilteringPreachers) {
+      return preachers.map((preacher) => ({ preacher, speakers: preacher.speakers ?? [] }));
+    }
+    return preachers
+      .map((preacher) => {
+        const speakers = preacher.speakers ?? [];
+        const sourceMatch = normalizeText(preacher.name).includes(normalizedPreacherFilter);
+        const matchedSpeakers = sourceMatch
+          ? speakers
+          : speakers.filter((speaker) => normalizeText(speaker.name).includes(normalizedPreacherFilter));
+        return { preacher, speakers: matchedSpeakers, visible: sourceMatch || matchedSpeakers.length > 0 };
+      })
+      .filter((item) => item.visible)
+      .map(({ preacher, speakers }) => ({ preacher, speakers }));
+  }, [siteIndex, isFilteringPreachers, normalizedPreacherFilter]);
 
   const visibleSermons = viewMode === "preachers" ? siteIndex?.sermons ?? [] : filteredSermons;
 
@@ -321,62 +355,85 @@ export function SermonLibrary() {
 
           <S.Panel>
             <S.PanelTitle>
-              <UserRound size={17} />
+              <Mic size={17} />
               Predicadores
             </S.PanelTitle>
+            <S.PreacherSearch>
+              <Search size={16} />
+              <S.PreacherSearchInput
+                value={preacherFilter}
+                onChange={(event) => setPreacherFilter(event.target.value)}
+                placeholder="Buscar predicador..."
+              />
+            </S.PreacherSearch>
             <S.SourceList>
-              <S.SourceButton
-                $active={selectedSource === "all"}
-                onClick={() => {
-                  setSelectedSource("all");
-                  setFiltersOpen(false);
-                }}
-              >
-                <UserRound size={17} />
-                <span>
-                  <S.SourceName>Todos</S.SourceName>
-                  <S.SourceMeta>Biblioteca completa</S.SourceMeta>
-                </span>
-                <S.CountPill>{siteIndex.stats.sermons}</S.CountPill>
-              </S.SourceButton>
-              {siteIndex.preachers.map((preacher) => (
-                <div key={preacher.slug}>
-                  <S.SourceButton
-                    $active={selectedSource === sourceFilterKey(preacher.slug)}
+              {!isFilteringPreachers ? (
+                <S.SourceRow $active={selectedSource === "all"}>
+                  <S.SourceMain
+                    $active={selectedSource === "all"}
                     onClick={() => {
-                      setSelectedSource(sourceFilterKey(preacher.slug));
-                      setViewMode("sermons");
+                      setSelectedSource("all");
                       setFiltersOpen(false);
                     }}
                   >
-                    <UserRound size={17} />
-                    <span>
-                      <S.SourceName>{preacher.name}</S.SourceName>
-                      <S.SourceMeta>{preacher.preacher || preacher.name}</S.SourceMeta>
-                    </span>
-                    <S.CountPill>{preacher.sermonCount}</S.CountPill>
-                  </S.SourceButton>
-                  {(preacher.speakers ?? []).map((speaker) => (
-                    <S.SourceButton
-                      key={speaker.key}
-                      $nested
-                      $active={selectedSource === speaker.key}
-                      onClick={() => {
-                        setSelectedSource(speaker.key);
-                        setViewMode("sermons");
-                        setFiltersOpen(false);
-                      }}
-                    >
-                      <UserRound size={15} />
-                      <span>
-                        <S.SourceName>{speaker.name}</S.SourceName>
-                        <S.SourceMeta>{preacher.name}</S.SourceMeta>
-                      </span>
-                      <S.CountPill>{speaker.sermonCount}</S.CountPill>
-                    </S.SourceButton>
-                  ))}
-                </div>
-              ))}
+                    <S.SourceNameText>Todos</S.SourceNameText>
+                    <S.SourceCount>{siteIndex.stats.sermons}</S.SourceCount>
+                  </S.SourceMain>
+                </S.SourceRow>
+              ) : null}
+              {visiblePreachers.length === 0 ? (
+                <S.FilterEmpty>Sin coincidencias para “{preacherFilter}”.</S.FilterEmpty>
+              ) : null}
+              {visiblePreachers.map(({ preacher, speakers }) => {
+                const hasChildren = (preacher.speakers?.length ?? 0) > 1;
+                const expanded = isFilteringPreachers || expandedSources.has(preacher.slug);
+                return (
+                  <div key={preacher.slug}>
+                    <S.SourceRow $active={selectedSource === sourceFilterKey(preacher.slug)}>
+                      <S.SourceMain
+                        $active={selectedSource === sourceFilterKey(preacher.slug)}
+                        onClick={() => {
+                          setSelectedSource(sourceFilterKey(preacher.slug));
+                          setViewMode("sermons");
+                          setFiltersOpen(false);
+                        }}
+                      >
+                        <S.SourceNameText>{preacher.name}</S.SourceNameText>
+                        <S.SourceCount>{preacher.sermonCount}</S.SourceCount>
+                      </S.SourceMain>
+                      {hasChildren ? (
+                        <S.ExpandToggle
+                          type="button"
+                          $open={expanded}
+                          aria-label={expanded ? "Colapsar" : "Expandir"}
+                          aria-expanded={expanded}
+                          onClick={() => toggleSource(preacher.slug)}
+                        >
+                          <ChevronDown size={15} />
+                        </S.ExpandToggle>
+                      ) : null}
+                    </S.SourceRow>
+                    {hasChildren && expanded && speakers.length > 0 ? (
+                      <S.SpeakerList>
+                        {speakers.map((speaker) => (
+                          <S.SpeakerButton
+                            key={speaker.key}
+                            $active={selectedSource === speaker.key}
+                            onClick={() => {
+                              setSelectedSource(speaker.key);
+                              setViewMode("sermons");
+                              setFiltersOpen(false);
+                            }}
+                          >
+                            <S.SourceNameText>{speaker.name}</S.SourceNameText>
+                            <S.SourceCount>{speaker.sermonCount}</S.SourceCount>
+                          </S.SpeakerButton>
+                        ))}
+                      </S.SpeakerList>
+                    ) : null}
+                  </div>
+                );
+              })}
             </S.SourceList>
           </S.Panel>
         </S.Sidebar>

@@ -395,6 +395,163 @@ export const CountPill = styled.span`
   font-variant-numeric: tabular-nums;
 `;
 
+export const PreacherSearch = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  border: 1px solid ${theme.borderStrong};
+  border-radius: ${theme.radiusSm};
+  background: ${theme.surface};
+  color: ${theme.textMuted};
+  transition: border-color ${theme.transitionFast}, box-shadow ${theme.transitionFast};
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:focus-within {
+    border-color: ${theme.accent};
+    box-shadow: 0 0 0 3px ${theme.accentSoft};
+    color: ${theme.accent};
+  }
+`;
+
+export const PreacherSearchInput = styled.input`
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: ${theme.text};
+  font-size: 13px;
+
+  &::placeholder {
+    color: ${theme.textMuted};
+  }
+`;
+
+export const SourceRow = styled.div<{ $active?: boolean }>`
+  display: flex;
+  align-items: stretch;
+  border-radius: ${theme.radiusSm};
+  background: ${({ $active }) => ($active ? theme.accentSoft : "transparent")};
+  transition: background ${theme.transitionFast};
+
+  &:hover {
+    background: ${({ $active }) => ($active ? theme.accentSoft : theme.surfaceMuted)};
+  }
+`;
+
+export const SourceMain = styled.button<{ $active?: boolean }>`
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 32px;
+  padding: 6px 4px 6px 10px;
+  border: 0;
+  border-radius: ${theme.radiusSm};
+  background: transparent;
+  color: ${({ $active }) => ($active ? theme.accent : theme.text)};
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 3px ${theme.accentSoft};
+  }
+`;
+
+export const SourceCount = styled.span`
+  flex: none;
+  color: ${theme.textMuted};
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+`;
+
+export const ExpandToggle = styled.button<{ $open?: boolean }>`
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  border: 0;
+  border-radius: ${theme.radiusSm};
+  background: transparent;
+  color: ${theme.textMuted};
+
+  svg {
+    width: 15px;
+    height: 15px;
+    transition: transform ${theme.transitionMed};
+    transform: rotate(${({ $open }) => ($open ? "180deg" : "0deg")});
+  }
+
+  &:hover {
+    color: ${theme.text};
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 3px ${theme.accentSoft};
+  }
+`;
+
+export const SpeakerList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 1px 0 4px 10px;
+  padding-left: 8px;
+  border-left: 1px solid ${theme.border};
+`;
+
+export const SpeakerButton = styled.button<{ $active?: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 30px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: ${theme.radiusSm};
+  background: ${({ $active }) => ($active ? theme.accentSoft : "transparent")};
+  color: ${({ $active }) => ($active ? theme.accent : theme.textSecondary)};
+  text-align: left;
+  font-size: 12.5px;
+  font-weight: 500;
+
+  &:hover {
+    background: ${({ $active }) => ($active ? theme.accentSoft : theme.surfaceMuted)};
+    color: ${({ $active }) => ($active ? theme.accent : theme.text)};
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 3px ${theme.accentSoft};
+  }
+`;
+
+export const SourceNameText = styled.span`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+export const FilterEmpty = styled.div`
+  padding: 10px 8px;
+  color: ${theme.textMuted};
+  font-size: 12.5px;
+`;
+
 export const MainColumn = styled.div`
   display: flex;
   flex-direction: column;
