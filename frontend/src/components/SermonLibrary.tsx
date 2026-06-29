@@ -528,7 +528,7 @@ function SermonDetailPanel({ detail }: { detail: SermonDetail }) {
     <S.DetailPanel>
       <S.DetailHeader>
         <S.TagRow>
-          <S.Tag $tone="status">{statusLabel(detail.status)}</S.Tag>
+          <S.StatusBadge $status={statusKey(detail.status)}>{statusLabel(detail.status)}</S.StatusBadge>
           {(detail.channelName || detail.preacher) && <S.Tag>{detail.channelName || detail.preacher}</S.Tag>}
         </S.TagRow>
         <S.DetailTitle>{detail.title}</S.DetailTitle>
