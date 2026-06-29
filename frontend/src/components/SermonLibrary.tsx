@@ -114,6 +114,12 @@ function matchesLibraryFilter(sermon: SermonListItem, selectedSource: string) {
   return sermon.sourceSlug === selectedSource;
 }
 
+function matchesSearchTerms(sermon: SermonListItem, searchTextById: Map<string, string>, terms: string[]) {
+  if (terms.length === 0) return true;
+  const searchText = searchTextById.get(sermon.id) ?? normalizeText(JSON.stringify(sermon));
+  return terms.some((term) => searchText.includes(term));
+}
+
 export function SermonLibrary() {
   const [siteIndex, setSiteIndex] = useState<SiteIndex | null>(null);
   const [searchIndex, setSearchIndex] = useState<SearchIndex>({ entries: [] });
@@ -212,10 +218,11 @@ export function SermonLibrary() {
     return uniqueSorted(siteIndex?.sermons.flatMap((sermon) => sermon.bibleReferences) ?? []);
   }, [siteIndex]);
 
+  const normalizedQuery = normalizeText(query.trim());
+  const queryTerms = useMemo(() => normalizedQuery.split(/\s+/).filter(Boolean), [normalizedQuery]);
+
   const filteredSermons = useMemo(() => {
     if (!siteIndex) return [];
-    const normalizedQuery = normalizeText(query.trim());
-    const terms = normalizedQuery.split(/\s+/).filter(Boolean);
 
     const scored = siteIndex.sermons
       .filter((sermon) => matchesLibraryFilter(sermon, selectedSource))
@@ -223,17 +230,38 @@ export function SermonLibrary() {
       .filter((sermon) => matchesStatusFilter(sermon.status, selectedStatus))
       .map((sermon) => {
         const searchText = searchTextById.get(sermon.id) ?? normalizeText(JSON.stringify(sermon));
-        const score = terms.length === 0 ? 1 : terms.reduce((total, term) => total + (searchText.includes(term) ? 1 : 0), 0);
+        const score =
+          queryTerms.length === 0 ? 1 : queryTerms.reduce((total, term) => total + (searchText.includes(term) ? 1 : 0), 0);
         return { sermon, score };
       })
-      .filter((item) => terms.length === 0 || item.score > 0)
+      .filter((item) => queryTerms.length === 0 || item.score > 0)
       .sort((a, b) => {
         if (b.score !== a.score) return b.score - a.score;
         return (b.sermon.publishedAt ?? "").localeCompare(a.sermon.publishedAt ?? "");
       });
 
     return scored.map((item) => item.sermon);
-  }, [query, searchTextById, selectedBook, selectedSource, selectedStatus, siteIndex]);
+  }, [queryTerms, searchTextById, selectedBook, selectedSource, selectedStatus, siteIndex]);
+
+  const menuCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    if (!siteIndex) return counts;
+
+    const menuScopedSermons = siteIndex.sermons
+      .filter((sermon) => selectedBook === "all" || sermon.bibleReferences.includes(selectedBook))
+      .filter((sermon) => matchesStatusFilter(sermon.status, selectedStatus))
+      .filter((sermon) => matchesSearchTerms(sermon, searchTextById, queryTerms));
+
+    counts.set("all", menuScopedSermons.length);
+    menuScopedSermons.forEach((sermon) => {
+      const sourceKey = sourceFilterKey(sermon.sourceSlug);
+      const speakerKey = preacherFilterKey(sermon.sourceSlug, sermon.preacher);
+      counts.set(sourceKey, (counts.get(sourceKey) ?? 0) + 1);
+      counts.set(speakerKey, (counts.get(speakerKey) ?? 0) + 1);
+    });
+
+    return counts;
+  }, [queryTerms, searchTextById, selectedBook, selectedStatus, siteIndex]);
 
   const normalizedPreacherFilter = normalizeText(preacherFilter.trim());
   const isFilteringPreachers = normalizedPreacherFilter.length > 0;
@@ -386,7 +414,7 @@ export function SermonLibrary() {
                     }}
                   >
                     <S.SourceNameText>Todos</S.SourceNameText>
-                    <S.SourceCount>{siteIndex.stats.sermons}</S.SourceCount>
+                    <S.SourceCount>{menuCounts.get("all") ?? 0}</S.SourceCount>
                   </S.SourceMain>
                 </S.SourceRow>
               ) : null}
@@ -408,7 +436,7 @@ export function SermonLibrary() {
                         }}
                       >
                         <S.SourceNameText>{preacher.name}</S.SourceNameText>
-                        <S.SourceCount>{preacher.sermonCount}</S.SourceCount>
+                        <S.SourceCount>{menuCounts.get(sourceFilterKey(preacher.slug)) ?? 0}</S.SourceCount>
                       </S.SourceMain>
                       {hasChildren ? (
                         <S.ExpandToggle
@@ -435,7 +463,7 @@ export function SermonLibrary() {
                             }}
                           >
                             <S.SourceNameText>{speaker.name}</S.SourceNameText>
-                            <S.SourceCount>{speaker.sermonCount}</S.SourceCount>
+                            <S.SourceCount>{menuCounts.get(speaker.key) ?? 0}</S.SourceCount>
                           </S.SpeakerButton>
                         ))}
                       </S.SpeakerList>
