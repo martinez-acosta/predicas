@@ -1,9 +1,16 @@
 export type Preacher = {
+  key: string;
   slug: string;
   name: string;
   preacher?: string | null;
   url: string;
   sermonCount: number;
+  speakers?: Array<{
+    key: string;
+    sourceSlug: string;
+    name: string;
+    sermonCount: number;
+  }>;
 };
 
 export type SermonListItem = {
@@ -55,4 +62,3 @@ export type SearchIndex = {
     text: string;
   }>;
 };
-

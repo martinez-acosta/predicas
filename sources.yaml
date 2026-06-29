@@ -1,7 +1,7 @@
 sources:
   - slug: icf-cdmx
-    name: ICF CDMX
-    preacher: Varios
+    name: Iglesia Conquistando Fronteras
+    preacher: ICF CDMX
     url: https://www.youtube.com/@ICFCDMX/videos
     enabled: true
   - slug: andres-spyker

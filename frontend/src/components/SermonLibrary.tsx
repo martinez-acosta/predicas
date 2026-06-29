@@ -66,6 +66,31 @@ function uniqueSorted(values: string[]) {
   return Array.from(new Set(values.filter(Boolean))).sort((a, b) => a.localeCompare(b, "es"));
 }
 
+function slugifyFilter(value?: string | null) {
+  return normalizeText(value ?? "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function sourceFilterKey(sourceSlug: string) {
+  return `source:${sourceSlug}`;
+}
+
+function preacherFilterKey(sourceSlug: string, preacher?: string | null) {
+  return `preacher:${sourceSlug}:${slugifyFilter(preacher) || "varios"}`;
+}
+
+function matchesLibraryFilter(sermon: SermonListItem, selectedSource: string) {
+  if (selectedSource === "all") return true;
+  if (selectedSource.startsWith("source:")) {
+    return sermon.sourceSlug === selectedSource.replace("source:", "");
+  }
+  if (selectedSource.startsWith("preacher:")) {
+    return preacherFilterKey(sermon.sourceSlug, sermon.preacher) === selectedSource;
+  }
+  return sermon.sourceSlug === selectedSource;
+}
+
 export function SermonLibrary() {
   const [siteIndex, setSiteIndex] = useState<SiteIndex | null>(null);
   const [searchIndex, setSearchIndex] = useState<SearchIndex>({ entries: [] });
@@ -127,7 +152,7 @@ export function SermonLibrary() {
     const terms = normalizedQuery.split(/\s+/).filter(Boolean);
 
     const scored = siteIndex.sermons
-      .filter((sermon) => selectedSource === "all" || sermon.sourceSlug === selectedSource)
+      .filter((sermon) => matchesLibraryFilter(sermon, selectedSource))
       .filter((sermon) => selectedBook === "all" || sermon.bibleReferences.includes(selectedBook))
       .filter((sermon) => matchesStatusFilter(sermon.status, selectedStatus))
       .map((sermon) => {
@@ -242,21 +267,40 @@ export function SermonLibrary() {
                 <S.CountPill>{siteIndex.stats.sermons}</S.CountPill>
               </S.SourceButton>
               {siteIndex.preachers.map((preacher) => (
-                <S.SourceButton
-                  key={preacher.slug}
-                  $active={selectedSource === preacher.slug}
-                  onClick={() => {
-                    setSelectedSource(preacher.slug);
-                    setViewMode("sermons");
-                  }}
-                >
-                  <UserRound size={17} />
-                  <span>
-                    <S.SourceName>{preacher.name}</S.SourceName>
-                    <S.SourceMeta>{preacher.preacher || preacher.name}</S.SourceMeta>
-                  </span>
-                  <S.CountPill>{preacher.sermonCount}</S.CountPill>
-                </S.SourceButton>
+                <div key={preacher.slug}>
+                  <S.SourceButton
+                    $active={selectedSource === sourceFilterKey(preacher.slug)}
+                    onClick={() => {
+                      setSelectedSource(sourceFilterKey(preacher.slug));
+                      setViewMode("sermons");
+                    }}
+                  >
+                    <UserRound size={17} />
+                    <span>
+                      <S.SourceName>{preacher.name}</S.SourceName>
+                      <S.SourceMeta>{preacher.preacher || preacher.name}</S.SourceMeta>
+                    </span>
+                    <S.CountPill>{preacher.sermonCount}</S.CountPill>
+                  </S.SourceButton>
+                  {(preacher.speakers ?? []).map((speaker) => (
+                    <S.SourceButton
+                      key={speaker.key}
+                      $nested
+                      $active={selectedSource === speaker.key}
+                      onClick={() => {
+                        setSelectedSource(speaker.key);
+                        setViewMode("sermons");
+                      }}
+                    >
+                      <UserRound size={15} />
+                      <span>
+                        <S.SourceName>{speaker.name}</S.SourceName>
+                        <S.SourceMeta>{preacher.name}</S.SourceMeta>
+                      </span>
+                      <S.CountPill>{speaker.sermonCount}</S.CountPill>
+                    </S.SourceButton>
+                  ))}
+                </div>
               ))}
             </S.SourceList>
           </S.Panel>
@@ -276,9 +320,14 @@ export function SermonLibrary() {
               <S.Select value={selectedSource} onChange={(event) => setSelectedSource(event.target.value)}>
                 <option value="all">Todos los predicadores</option>
                 {siteIndex.preachers.map((preacher) => (
-                  <option key={preacher.slug} value={preacher.slug}>
-                    {preacher.name}
-                  </option>
+                  <optgroup key={preacher.slug} label={preacher.name}>
+                    <option value={sourceFilterKey(preacher.slug)}>Toda la fuente</option>
+                    {(preacher.speakers ?? []).map((speaker) => (
+                      <option key={speaker.key} value={speaker.key}>
+                        {speaker.name}
+                      </option>
+                    ))}
+                  </optgroup>
                 ))}
               </S.Select>
               <S.Select value={selectedBook} onChange={(event) => setSelectedBook(event.target.value)}>

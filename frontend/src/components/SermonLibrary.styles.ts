@@ -209,13 +209,13 @@ export const SourceList = styled.div`
   gap: 2px;
 `;
 
-export const SourceButton = styled.button<{ $active?: boolean }>`
+export const SourceButton = styled.button<{ $active?: boolean; $nested?: boolean }>`
   display: grid;
-  grid-template-columns: 28px minmax(0, 1fr) auto;
+  grid-template-columns: ${({ $nested }) => ($nested ? "22px minmax(0, 1fr) auto" : "28px minmax(0, 1fr) auto")};
   align-items: center;
-  gap: 10px;
+  gap: ${({ $nested }) => ($nested ? "8px" : "10px")};
   width: 100%;
-  padding: 9px 10px;
+  padding: ${({ $nested }) => ($nested ? "8px 10px 8px 28px" : "9px 10px")};
   border: 1px solid transparent;
   border-radius: ${theme.radiusSm};
   color: ${theme.text};

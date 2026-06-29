@@ -7,6 +7,7 @@ from typing import Any
 
 from backend.sermon_index.config import get_settings
 from backend.sermon_index.db import connect, init_db, json_dump, json_load, rebuild_fts
+from backend.sermon_index.preacher_inference import slugify_preacher
 
 
 def _write_json(path: Path, payload: Any) -> None:
@@ -42,6 +43,17 @@ def main() -> None:
             WHERE s.enabled = 1
             GROUP BY s.slug
             ORDER BY s.name
+            """
+        ).fetchall()
+        speakers = conn.execute(
+            """
+            SELECT
+              v.source_slug,
+              COALESCE(NULLIF(v.preacher, ''), 'Varios') AS preacher,
+              COUNT(v.video_id) AS sermon_count
+            FROM videos v
+            GROUP BY v.source_slug, COALESCE(NULLIF(v.preacher, ''), 'Varios')
+            ORDER BY v.source_slug, sermon_count DESC, preacher ASC
             """
         ).fetchall()
         rows = conn.execute(
@@ -113,6 +125,18 @@ def main() -> None:
         }
         _write_json(sermon_dir / f"{row['video_id']}.json", detail)
 
+    speakers_by_source: dict[str, list[dict[str, Any]]] = {}
+    for row in speakers:
+        preacher = row["preacher"] or "Varios"
+        speakers_by_source.setdefault(row["source_slug"], []).append(
+            {
+                "key": f"preacher:{row['source_slug']}:{slugify_preacher(preacher)}",
+                "sourceSlug": row["source_slug"],
+                "name": preacher,
+                "sermonCount": row["sermon_count"],
+            }
+        )
+
     payload = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "stats": {
@@ -123,11 +147,13 @@ def main() -> None:
         },
         "preachers": [
             {
+                "key": f"source:{row['slug']}",
                 "slug": row["slug"],
                 "name": row["name"],
                 "preacher": row["preacher"],
                 "url": row["url"],
                 "sermonCount": row["sermon_count"],
+                "speakers": speakers_by_source.get(row["slug"], []),
             }
             for row in sources
         ],
@@ -140,4 +166,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

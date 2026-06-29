@@ -6,6 +6,8 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Iterator
 
+from backend.sermon_index.preacher_inference import infer_preacher
+
 
 SCHEMA = """
 PRAGMA journal_mode = WAL;
@@ -129,6 +131,7 @@ def upsert_source(conn: sqlite3.Connection, source: dict[str, Any]) -> None:
 
 
 def upsert_video(conn: sqlite3.Connection, video: dict[str, Any]) -> None:
+    preacher = infer_preacher(video["source_slug"], video["title"], video.get("preacher"))
     conn.execute(
         """
         INSERT INTO videos (
@@ -156,6 +159,7 @@ def upsert_video(conn: sqlite3.Connection, video: dict[str, Any]) -> None:
         """,
         {
             **video,
+            "preacher": preacher,
             "metadata_json": json_dump(video.get("metadata", {})),
             "status": video.get("status", "discovered"),
         },
