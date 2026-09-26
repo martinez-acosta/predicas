@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Emociones Tóxicas: Jesús lo llena todo | Iván Hernández | Prédicas"}],["$","meta","1",{"name":"description","content":"Iván Hernández cierra la serie sobre emociones con la plenitud de Cristo para espíritu, alma y cuerpo. Bethesda ilustra sanidad, Josué el perdón y la samaritana la sinceridad para recibir ayuda. Invita a reconocer dificultades sin vergüenza ni autosuficiencia y afirma que Dios puede actuar mediante medicina, hábitos y personas que acompañan."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MwyKB3gL6Xx6pha0PXlJP"}

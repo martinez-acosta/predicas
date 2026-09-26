@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Venciendo el Rechazo: La cuchara y el tenedor | Alejandro Escobedo | Temas ICF"}],["$","meta","1",{"name":"description","content":"Alejandro explica cómo el rechazo distorsiona identidad y relaciones; mediante su historia de pobreza y el relato de Esaú, llama a recibir el amor de Dios y abandonar respuestas de aislamiento y rebeldía."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MwyKB3gL6Xx6pha0PXlJP"}

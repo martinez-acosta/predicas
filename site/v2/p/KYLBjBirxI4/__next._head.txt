@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Todo Me Ha Superado, ¿Y Ahora Qué Hago? | Misael Barrera | Temas ICF"}],["$","meta","1",{"name":"description","content":"Misael Barrera anima a quienes se sienten superados a distinguir las salidas impulsivas de la oportunidad de buscar a Dios. Israel ante el mar y la oración de Josafat sostienen el llamado a esperar, depender del Espíritu y humillarse. Kharis relata la crisis de salud de su hija y la nueva atención médica que interpretaron como una puerta abierta por Dios."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MwyKB3gL6Xx6pha0PXlJP"}

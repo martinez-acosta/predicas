@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"En Mi Casa No Entran Cabras | Misael Barrera | Prédicas"}],["$","meta","1",{"name":"description","content":"Misael usa tres cabras como imagen de mentira, celos e inmoralidad: llama a recibir la obra de Cristo, sanar la autoridad familiar y proteger el hogar con un corazón enseñable."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MwyKB3gL6Xx6pha0PXlJP"}

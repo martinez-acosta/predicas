@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Raíces, tallos y frutos | Jonathan Rodríguez | Temas ICF"}],["$","meta","1",{"name":"description","content":"Jonathan llama a congregarse y servir desde la comunión con Cristo, el amor y la gratitud, sin tratar esas obras como requisitos añadidos a la salvación. Distingue la apariencia religiosa del fruto de una vida unida a Jesús: Cristo es la raíz, el creyente recibe su vida y la gloria de Dios es el fin."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MwyKB3gL6Xx6pha0PXlJP"}

@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Hermanos Mayores: Responsabilidades, Conflictos, Reconciliación | Alejandro Escobedo | Prédicas"}],["$","meta","1",{"name":"description","content":"Desde Mateo 5 y las historias de Caín, Esaú y Judá, Alejandro Escobedo llama a hermanos biológicos y espirituales a asumir cuidado, iniciar reconciliación, restituir y madurar bajo la ayuda del Espíritu Santo."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MwyKB3gL6Xx6pha0PXlJP"}

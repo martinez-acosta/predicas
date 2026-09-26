@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Amor Eterno | Jonathan Rodríguez | Temas ICF"}],["$","meta","1",{"name":"description","content":"Jonathan contrasta el amor descrito en Primera de Corintios 13 con el orgullo, el interés y el rencor que dañan nuestras relaciones. Mediante la samaritana, el hombre rico y Getsemaní, invita a entregar el corazón y dejarse amar por Jesús para amar a otros desde ese amor."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MwyKB3gL6Xx6pha0PXlJP"}

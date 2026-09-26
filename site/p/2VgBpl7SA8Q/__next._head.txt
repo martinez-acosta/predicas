@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Vigilantes de oración | Alejandro Escobedo  | Pastores y Líderes 01 |  Cristo sin velos |  CIJ26 | Prédicas"}],["$","meta","1",{"name":"description","content":"Alejandro Escobedo exhorta a pastores y líderes a ministrar al Señor, conocer su carácter en la Escritura y formar comunidades de intercesores que oren sin aplazar, permanezcan como centinelas y colaboren en oración por la Iglesia, las familias, las misiones y México."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MwyKB3gL6Xx6pha0PXlJP"}

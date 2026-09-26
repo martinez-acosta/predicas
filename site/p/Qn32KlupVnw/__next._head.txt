@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Riqueza Perdida | Jonathan Rodriguez | Prédicas"}],["$","meta","1",{"name":"description","content":"Jonathan presenta la Escritura como una riqueza que restaura, da sabiduría, alegra y orienta. Advierte tres maneras de perderla: no conocerla, leer sin comprender y endurecer el corazón frente a lo comprendido. Invita a leer con atención y disposición a obedecer, buscando conocer a Cristo, y no solamente obtener beneficios."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MwyKB3gL6Xx6pha0PXlJP"}
