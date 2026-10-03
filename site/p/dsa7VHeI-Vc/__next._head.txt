@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Somos frágiles | Domingo de Ramos | Prédicas"}],["$","meta","1",{"name":"description","content":"En Domingo de Ramos, Spyker lee Mateo 21 y clama Hosanna desde la fragilidad. Expone al Rey humilde que inaugura su reino y avanza corazón por corazón. Al recibirlo, enseña, Jesús da propósito, cambia relaciones transaccionales por amor y restaura la libertad de ver y caminar tras recibir perdón."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}

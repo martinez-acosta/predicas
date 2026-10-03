@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Eso No Está Bien | Alejandro Escobedo | Prédicas"}],["$","meta","1",{"name":"description","content":"Alejandro Escobedo confronta guardar el evangelio mientras otros necesitan conocer a Cristo. Con los cuatro leprosos de 2 Reyes 7, el gadareno y la responsabilidad del centinela, llama a toda la iglesia a compartir las buenas nuevas con santidad. Relata cómo el Espíritu rompió su intimidación al comenzar a predicar, y presenta la adoración, identidad renovada, propósito, testimonio y obediencia como señales de libertad verdadera."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}

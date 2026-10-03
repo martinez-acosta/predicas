@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Visión 2033 / 2025 | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker presenta la visión misionera y social de Más Vida para 2025 y 2033, unida a un mover fresco de Dios. Explica cuatro señales: creyentes que despiertan y personas que se convierten, arrepentimiento normal, adoración con presencia de Dios y colaboración generosa con el evangelio."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}

@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Un Viaje de 3 Estaciones: Mi Actitud y El Dinero | Alejandro Escobedo | Prédicas"}],["$","meta","1",{"name":"description","content":"Alejandro Escobedo describe tres estaciones de la actitud hacia el dinero: pretextos que desordenan prioridades, generosidad reavivada y madurez constante. Desde Hageo 1, Filipenses 4 y 2 Corintios 8 llama a reconocer a Dios con diezmos y ofrendas, sostener la obra y compartir aun con pocos recursos; relaciona esa respuesta con disciplina, provisión y recompensa, y la aplica a proyectos locales y al comedor Génesis en Oaxaca."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}

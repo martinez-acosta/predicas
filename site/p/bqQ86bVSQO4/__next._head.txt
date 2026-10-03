@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Quién es Dios, Cómo es Dios | @Lucas Magnin ★ Teología Pop | Prédicas"}],["$","meta","1",{"name":"description","content":"Lucas Magnin pregunta quién es Dios y cómo es Dios desde su experiencia de crisis de fe. Explica que el sufrimiento puede derribar imágenes construidas por miedo o deseo, y encuentra en Jesús la respuesta: imagen del Dios invisible, plenitud divina y Verbo hecho carne. Desarrolla Juan 1:14 y 18 con sus ecos de Éxodo y llama a seguir a Cristo, distinguir la propia voz de la de Dios y confiar aun sin tener todas las respuestas."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}

@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"No repitas los errores de tus padres — Amor sano parte 3 | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés y Kelly Spyker enseñan a dejar y honrar a los padres para no reproducir sus errores: valorarlos, perdonar ofensas específicas, expresar gratitud y dejar de depender de su aprobación. Con ejemplos familiares y la identidad de hijos recibida del Padre celestial, llaman a soltar heridas y construir relaciones sanas en Cristo."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}

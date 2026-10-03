@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Fuerte, constante y motivado (1 Corintios 15:58) | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker recorre 1 Corintios 15 para explicar cómo la resurrección cambia la vida diaria: Jesús es Mesías, Su sacrificio da perdón y los creyentes resucitarán. Desde el versículo 58 llama a seguir creciendo en la identidad recibida, no desplazar a Cristo del primer lugar y trabajar con entusiasmo sin negociar reconocimiento inmediato. Conserva la esperanza de sanidad y de una recompensa futura para el servicio cotidiano."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}

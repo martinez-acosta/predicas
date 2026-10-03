@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"5 señales de un líder inseguro | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker presenta cinco señales de una identidad insegura: molestarse por el favor ajeno, evadir responsabilidad, tratar según conveniencia, depender de aprobación e intimidarse hasta menospreciar el propio don. Desde Caín y Abel llama a recibir una identidad segura en Cristo que permita madurar, honrar a todos y servir sin competir por reconocimiento."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}

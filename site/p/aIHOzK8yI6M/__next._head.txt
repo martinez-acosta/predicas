@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"¿Cómo tener un matrimonio que perdura? | Prédicas"}],["$","meta","1",{"name":"description","content":"En sus bodas de plata, Andrés y Kelly Spyker enseñan que un matrimonio perdurable se construye un día a la vez. Comparten crisis y alegrías, ayuda recibida, amistad, palabras que edifican y perdón; renuevan sus votos bajo la gracia de Jesús, el amor del Padre y la comunión del Espíritu."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}

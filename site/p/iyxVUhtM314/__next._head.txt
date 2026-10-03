@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Adicciones y sentadillas | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker presenta las siete inmersiones de Naamán como sentadillas de humildad y obediencia: recibir libertad de Cristo y caminarla con hábitos nuevos. Relaciona las adicciones con necesidades interiores que se intentan llenar por medios humanos, llama a exponer la debilidad y desarrolla la mesa con Jesús como respuesta a la falta de aprobación, mediante su propio proceso de acompañamiento pastoral ante ansiedad y pánico."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rXfXQudrpcxa_06pvMvbn"}
