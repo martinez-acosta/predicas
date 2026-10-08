@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Cómo elegir gobernantes | Andrés Spyker | Prédicas"}],["$","meta","1",{"name":"description","content":"Ante las elecciones de junio de 2024, Andrés Spyker enseña a mirar a la persona y no solamente al partido o sistema. Propone revisar gobierno personal, valores familiares, resultados profesionales y compromiso con justicia y seguridad. Pide orar, estudiar y votar respetando la libertad de cada ciudadano, distinguir iglesia institucional de participación individual y seguir orando por los gobernantes aunque no se haya votado por ellos."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

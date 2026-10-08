@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Cómo salir de una crisis | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker recorre Salmo 40:1-3 para salir de una crisis: esperar la ayuda de Dios sin atajos, reconocer a Jesús como roca y dar pasos de obediencia. Desde su desánimo ante una oportunidad en Londres desarrolla perdón como decisión y proceso, cuidado y respeto matrimonial, diezmo con presupuesto y honra a padres según la etapa de vida. Distingue el rescate del pecado de los nuevos fosos del creyente y conduce a oración, arrepentimiento y fe en Cristo."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

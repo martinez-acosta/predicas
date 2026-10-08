@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Dos Voces | Iván Hernández | Temas ICF"}],["$","meta","1",{"name":"description","content":"Iván Hernández distingue dos voces: la que anuncia el evangelio y la de personas que preguntan qué hacer ante la crisis. Desde Juan el Bautista llama a la iglesia a responder con Cristo y frutos de arrepentimiento: compartir, actuar con justicia y no abusar. Pide avivamiento para recuperar la urgencia de evangelizar y aprovechar oportunidades con prudencia."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

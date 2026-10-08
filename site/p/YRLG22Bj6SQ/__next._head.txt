@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Tres regalos de Navidad | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker presenta tres regalos de Dios en Jesús: propósito que reorienta planes y profesión, perdón que libera de culpa y dominio del pecado, y la presencia del Espíritu Santo. Parte de Mateo 1:18–25, compara el cuidado navideño de Kelly con la preparación del Padre y aplica Juan 14:15–18 al corazón como pesebre. Cierra orando por soledad, vergüenza y tristeza, y llamando a recibir a Cristo."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

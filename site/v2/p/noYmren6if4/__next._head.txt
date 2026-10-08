@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Dios te levantará otra vez | Juan Pablo Lerman | Fundamental 2024 | Temas ICF"}],["$","meta","1",{"name":"description","content":"Desde Marcos 2, Juan Pablo Lerman enseña que Dios puede levantar a quien se siente caído: rodearse de personas que lo acerquen a Cristo, dejar que Jesús perdone y repare el interior, y creer en su poder sobrenatural. Sus testimonios de ruptura y beca perdida desembocan en devolver a Jesús el primer lugar, abandonar el pecado y darle la gloria."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

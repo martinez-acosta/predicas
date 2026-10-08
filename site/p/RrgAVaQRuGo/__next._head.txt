@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Liderazgo liberador | Andrés Spyker | Conferencia Aliento | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker enseña a liberar el potencial de otros en vez de concentrar todas las ideas y decisiones. Desde Hechos 6 propone escoger personas con buen corazón, Espíritu y sabiduría, comunicar qué se busca y por qué, dejarles desarrollar el cómo y evaluar resultados sin controlar cada detalle. La ronda de preguntas desarrolla lealtad voluntaria, cultura, selección y formación práctica de nuevos líderes."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

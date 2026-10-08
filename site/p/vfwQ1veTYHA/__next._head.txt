@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Acariciando leones | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker usa Daniel 6 y Mateo 5 para llamar a servir la ciudad como sal, trabajar con excelencia y carácter como luz, y permanecer fieles ante el rechazo. La liberación de Daniel apunta, según su lectura, a la esperanza de restauración y a la victoria de Jesús, sin prometer que nadie sufrirá daño."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

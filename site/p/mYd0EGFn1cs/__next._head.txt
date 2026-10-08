@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Luz Eterna Podcast - Episodio 04 - La Amargura | Prédicas"}],["$","meta","1",{"name":"description","content":"Las participantes de Luz Eterna describen la amargura como una raíz que crece desde dolor y desilusión y daña a quienes están cerca. Mediante testimonios y Hebreos 12:15 llaman a reconocerla, recibir corrección, renovar el pensamiento, perdonar y rendirse a Dios cada día. Enseñan también a ayudar sin exhibir y a pedir perdón a los hijos."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

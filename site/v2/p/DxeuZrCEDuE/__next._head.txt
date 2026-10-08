@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"La majestad ilimitada de Dios | Rebecca Myers Jacob | Temas ICF"}],["$","meta","1",{"name":"description","content":"Rebecca Myers Jacob enseña que contemplar al Rey eterno en medio de la crisis desplaza las seguridades que ocupan su lugar, revela el pecado y conduce a confesión y limpieza en Cristo. Pide depender completamente de su gracia, vivir en santidad y llenar la vida de su presencia para escucharlo, responder y caminar bajo su dirección."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

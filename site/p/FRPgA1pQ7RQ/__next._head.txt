@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Muros y gigantes | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker distingue los ciclos virtuosos, prácticas repetidas con propósito, de los círculos viciosos que repiten miedo y derrota. Desde Eclesiastés, Jericó y David frente a Goliat, desarrolla perseverancia, renovación interior y fe. El cierre presenta a Cristo como el verdadero David: su victoria en la cruz sostiene la libertad, el perdón y la continuidad de los buenos hábitos."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

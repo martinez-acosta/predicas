@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Jesús no es un árbitro | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker presenta a Jesús como Señor y entrenador que enseña a responder a decisiones ajenas. Con Lucas 12 llama a cuidar el corazón, cambiar las decisiones propias y vivir con perspectiva eterna, y aplica esa fidelidad a ofensas, adopción, administración y primicias."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"No se enojen, mejor adoren | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker lee el Salmo 4 como una invitación a reemplazar el enojo y el deseo de controlar los resultados por adoración confiada. Explica que una entrega nacida del evangelio abarca tiempo de oración, voluntad rendida mediante ayuno y bienes ofrecidos con gratitud, y aplica esa actitud a las primicias del año."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

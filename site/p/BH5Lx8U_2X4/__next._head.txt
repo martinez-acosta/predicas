@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Luz Eterna Podcast | Episodio 10 | S.O.S Necesito ser más paciente | Prédicas"}],["$","meta","1",{"name":"description","content":"Cuatro mujeres de Luz Eterna Podcast dialogan sobre la paciencia entre madres e hijas: frenar el ritmo, escuchar, confirmar lo que la otra entendió y disfrutar la etapa presente. La relacionan con el fruto del Espíritu, el amor y la espera en Dios."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

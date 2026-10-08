@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Volviendo a mi jardín | Prédicas"}],["$","meta","1",{"name":"description","content":"Claudia Anaya parte de la viña descuidada de Cantares y de Marta y María para mostrar cómo atender a todos puede esconder agotamiento emocional y espiritual. Llama a reconocerlo, poner límites, distinguir las demandas propias de la voz de Dios y volver a regar el interior con su Palabra y su presencia, para servir desde la plenitud y no desde el desgaste."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}

@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Sacrificio y Bendición | Edwin Recinos | Prédicas"}],["$","meta","1",{"name":"description","content":"Edwin Recinos enseña que lo valioso requiere sacrificio y que la gloria sigue a la entrega, desde Juan 12:23–25 y Génesis 22:1–18. Aplica siembra y cosecha al estudio, ahorro, familia, servicio y emprendimiento; relata los costos de su vida ministerial y contrasta Isaac e Ismael con hijos que colaboran o sólo consumen. Llama a participar en la misión y a recibir a Cristo, cuyo sacrificio presenta como origen de salvación y restauración."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rtRvldbhhlgugs4Byx6ki"}
