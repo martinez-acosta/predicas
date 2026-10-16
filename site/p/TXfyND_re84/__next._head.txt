@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Casados y felices | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés y Kelly enseñan a recibir el gozo de Cristo y cultivarlo personalmente para compartirlo en el matrimonio: compromiso con paciencia, cuidado espiritual, emocional y físico, y celebración de las diferencias. Rechazan el abandono emocional y reconocen casos extremos que requieren dejar una falsa esperanza."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"2f97uO1rRC6RJ0pK9rKwf"}
