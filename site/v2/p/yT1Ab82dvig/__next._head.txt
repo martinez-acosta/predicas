@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Gerry Testori — ¿Qué harás con el llamado de Dios? pt1 | Temas ICF"}],["$","meta","1",{"name":"description","content":"Gerry Testori relata cómo una disponibilidad sencilla abrió una obra misionera en China y Camboya, uniendo evangelio, escuela, clínica y cuidado de familias. Con Abraham y Elías llama a responder a Dios con obediencia, fe y costo real; no todos deben ir lejos, pero todos pueden ofrecer tiempo, talentos y vida para servir donde Dios los llama."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"AFc__9xT6hgp88RmRNaf2"}

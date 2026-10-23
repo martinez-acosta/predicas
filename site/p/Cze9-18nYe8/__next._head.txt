@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Poniendo En Orden Mi Hogar — Alejandro Escobedo | Prédicas"}],["$","meta","1",{"name":"description","content":"Con Natán y la sucesión de David, Alejandro Escobedo llama a discernir y corregir primero el propio corazón y el hogar. Propone diálogo, perdón y límites con ayuda del Espíritu, no legalismo; relata la restauración progresiva con Norma y sus hijos y advierte que reconocer el desorden sin actuar no lo resuelve."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"AFc__9xT6hgp88RmRNaf2"}

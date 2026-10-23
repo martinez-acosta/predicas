@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Las respuestas ante las crisis | Alejandro Escobedo | Prédicas"}],["$","meta","1",{"name":"description","content":"Ante crisis inevitables, Escobedo contrasta la incredulidad del funcionario de Samaria con Pedro, que vuelve a echar las redes por la palabra de Jesús. Llama a no dar la derrota por segura, confiar también para la necesidad propia y responder obedeciendo, sin culpar a otros."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"AFc__9xT6hgp88RmRNaf2"}

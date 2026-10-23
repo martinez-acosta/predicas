@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"150 kilos de coraje | Prédicas"}],["$","meta","1",{"name":"description","content":"Con los sacerdotes que sostienen el arca en el Jordán, Spyker enseña que el sacrificio obediente de pocos bendice a muchos. Pide buen coraje al entregar recursos, reputación y comodidad: no para comprar perdón, sino para que otros conozcan a Cristo, mientras Dios sostiene al que obedece."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"AFc__9xT6hgp88RmRNaf2"}

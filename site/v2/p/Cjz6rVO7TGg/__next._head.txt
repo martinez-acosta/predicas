@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Alejandro Escobedo | ¿Amistades sabias o corruptas? | Temas ICF"}],["$","meta","1",{"name":"description","content":"La Palabra y el Espíritu forman el corazón para elegir amistades y alianzas que edifiquen. Escobedo contrasta la piedad de Josafat con sus asociaciones corruptas y aplica la corrección a iglesia, crianza, empresas y matrimonio: Dios puede deshacer un proyecto por amor, mientras Cristo restaura la alianza que da sabiduría."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"AFc__9xT6hgp88RmRNaf2"}

@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"ViewportBoundary"]
+3:I[484,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Eres el favorito de Dios - Padre nuestro | Prédicas"}],["$","meta","1",{"name":"description","content":"El favor del Padre no evitó que José sufriera, pero lo acompañó hasta cumplir su propósito. Andrés Spyker relaciona su historia con Cristo y la adopción del creyente: la identidad de hijo no depende del mejor día de conducta. Desde esa seguridad invita a perdonar, mirar las circunstancias desde la perspectiva de Dios y hacer bien a quienes hicieron daño."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"AFc__9xT6hgp88RmRNaf2"}
