@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2486,[],"ViewportBoundary"]
+3:I[2486,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Enemigos del crush — Crush | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker propone proteger el matrimonio y las demás relaciones luchando en el propio corazón contra resentimiento, falta de adaptación a la paternidad, familiaridad, comparación y sueños aislados; llama al perdón, la honra y un propósito compartido, con distancia cuando hay abuso."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7k4FeRUc-8KGGN2KJQDY5"}

@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2486,[],"ViewportBoundary"]
+3:I[2486,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Cinco solas: regreso al origen de la Iglesia cristiana | Alejandro Escobedo | Temas ICF"}],["$","meta","1",{"name":"description","content":"Escobedo llama a volver al origen de la fe y mantener sus fundamentos: sólo Escritura, Cristo, gracia, fe y gloria de Dios. Desde Ezequiel 16 y la Reforma confronta ignorancia, mérito religioso e idolatría, y propone estudio sistemático y formación de los hijos sin depender sólo de sensaciones."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7k4FeRUc-8KGGN2KJQDY5"}

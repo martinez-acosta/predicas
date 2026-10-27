@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2486,[],"ViewportBoundary"]
+3:I[2486,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Alejandro Escobedo | La Hombría | Temas ICF"}],["$","meta","1",{"name":"description","content":"Para Escobedo, la hombría se aprende asumiendo responsabilidad gozosa, lealtad al pacto y cuidado espiritual de esposa e hijos. Pide depender del Espíritu, cultivar con paciencia un hogar real, no perfecto, trabajar con justicia y generosidad y conservar la visión de cosecha después de los errores."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7k4FeRUc-8KGGN2KJQDY5"}

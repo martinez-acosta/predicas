@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2486,[],"ViewportBoundary"]
+3:I[2486,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"La cruz | Bob Sorge | Temas ICF"}],["$","meta","1",{"name":"description","content":"Sorge presenta la cruz como amor leal que salva y también llama a identificarse con Jesús. Sustitución e identificación, copa, cicatrices y palabras bajo presión muestran una entrega completa. Volver a ella sostiene confianza aun sin entender la sanidad pendiente y da valor para hacer pública la fe."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7k4FeRUc-8KGGN2KJQDY5"}

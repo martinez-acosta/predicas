@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2486,[],"ViewportBoundary"]
+3:I[2486,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Día 10 — Oración + devocional Espíritu Santo | Prédicas"}],["$","meta","1",{"name":"description","content":"Andrés Spyker enseña que el Espíritu Santo convence para llevar a la fe en Jesús y a sus caminos, no para aplastar con condenación. Con Juan 16 y tres salmos guía oraciones de examen y arrepentimiento, provisión aun ante pérdida de empleo y libertad del temor; declara protección y acompaña el clamor con ayuda alimentaria de la iglesia."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7k4FeRUc-8KGGN2KJQDY5"}

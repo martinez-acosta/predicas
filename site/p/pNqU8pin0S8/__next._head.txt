@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2486,[],"ViewportBoundary"]
+3:I[2486,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Techos y tragaluces - Nunca falla | Prédicas"}],["$","meta","1",{"name":"description","content":"El amor es techo que protege y restaura, no tragaluz que avergüenza. Cubrir no es encubrir asuntos que deben ir a una autoridad: Spyker lo concreta en paciencia con personalidad, proceso y momento, servicio sin exigir mérito y celebración del bien ajeno en lugar de envidia."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7k4FeRUc-8KGGN2KJQDY5"}

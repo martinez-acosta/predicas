@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2486,[],"ViewportBoundary"]
+3:I[2486,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"La Nación Que Soñamos | Alejandro Escobedo | Prédicas"}],["$","meta","1",{"name":"description","content":"Alejandro Escobedo llama a amar la nación, interceder por sus autoridades y perseverar en anunciar a Jesús. Con Daniel, 2 Crónicas y Ester enseña que la bendición nacional se manifiesta por un pueblo humilde y obediente, que actúa bajo la providencia de Dios sin vender su misión al partidismo."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7k4FeRUc-8KGGN2KJQDY5"}

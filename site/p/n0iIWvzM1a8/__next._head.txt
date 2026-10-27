@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2486,[],"ViewportBoundary"]
+3:I[2486,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Alejandro Escobedo | Paternidad | Prédicas"}],["$","meta","1",{"name":"description","content":"Escobedo presenta el amor del Padre como la raíz que sana la orfandad y da fuerzas para vivir el propósito. Ester y Mardoqueo ilustran una conexión que sirve a otros; los casos de la iglesia llevan esa afirmación a abrazos, acompañamiento y oportunidades. Distingue ese cuidado del paternalismo abusivo y pide recibir y expresar amor con respeto."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7k4FeRUc-8KGGN2KJQDY5"}

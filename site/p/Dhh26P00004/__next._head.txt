@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2486,[],"ViewportBoundary"]
+3:I[2486,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"El cómplice del ladrón | Prédicas"}],["$","meta","1",{"name":"description","content":"Tony Maldonado advierte que un hombre puede colaborar con la destrucción de su propio hogar mediante palabras y conductas que hieren. Contrapone esa complicidad con ser colaborador de Dios: reconocer el daño, arrepentirse, perdonar y expresar amor a la esposa y los hijos de maneras concretas."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7k4FeRUc-8KGGN2KJQDY5"}
