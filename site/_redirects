@@ -1,0 +1,2 @@
+/ /predicas/ 302
+/predicas/* /:splat 200

@@ -1,0 +1,66 @@
+name: Deploy static GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout static snapshot
+        uses: actions/checkout@v4
+
+      - name: Pin semantic assets to this snapshot
+        env:
+          SEMANTIC_VERSION_PLACEHOLDER: "0000000000000000000000000000000000000000"
+        run: |
+          find site -type f \( -name '*.js' -o -name '*.html' -o -name '*.txt' \) -print0 \
+            | xargs -0 sed -i "s/${SEMANTIC_VERSION_PLACEHOLDER}/${GITHUB_SHA}/g"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Remove unused Next route payloads for Cloudflare Pages
+        run: |
+          before=$(find site -type f | wc -l)
+          # Direct sermon URLs use index.html; the client handles in-app navigation.
+          find site -type f \( -name '__next*.txt' -o -name 'index.txt' \) -delete
+          after=$(find site -type f | wc -l)
+          test -f site/index.html
+          test -f site/data/library-index.json
+          test -f site/pagefind/pagefind.js
+          test -n "$(find site/p -type f -name index.html -print -quit)"
+          test "$after" -le 20000
+          echo "Cloudflare Pages files: $before -> $after"
+
+      - name: Deploy static assets to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          wranglerVersion: "4.138.0"
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy site --project-name=predicas --branch=main --commit-hash=${{ github.sha }} --commit-dirty=true
