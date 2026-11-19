@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[2840,[],"ViewportBoundary"]
+3:I[2840,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Tropecé otra vez, pero no me dolió | Alejandro Escobedo | Prédicas"}],["$","meta","1",{"name":"description","content":"Alejandro Escobedo advierte que la seducción puede apartar gradualmente a una persona de sus principios en las relaciones, la vida espiritual y las finanzas. A partir de Proverbios, Sansón, Nehemías y Giezi, llama a cultivar discernimiento mediante la Palabra, huir de la tentación y ejercer dominio propio."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"5b7E9oJuEzs6wmrni0G5I"}
