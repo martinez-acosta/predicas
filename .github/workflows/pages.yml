@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -39,6 +40,28 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
+      - name: Wait for Pages artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # The artifact can take time to appear in the API after upload completes.
+          for attempt in $(seq 1 36); do
+            if count=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" \
+              --jq '[.artifacts[] | select(.name == "github-pages" and .expired == false)] | length'); then
+              if [ "$count" -eq 1 ]; then
+                echo "Pages artifact is available."
+                exit 0
+              fi
+              if [ "$count" -gt 1 ]; then
+                echo "More than one Pages artifact exists; start a new workflow run." >&2
+                exit 1
+              fi
+            fi
+            sleep 5
+          done
+          echo "Pages artifact did not become available within three minutes." >&2
+          exit 1
 
       - name: Deploy
         id: deployment
